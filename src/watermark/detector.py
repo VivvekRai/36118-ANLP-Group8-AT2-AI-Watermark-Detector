@@ -9,10 +9,7 @@ from .green_list import get_green_list
 
 
 def check_green_fraction(tokenizer, text: str, green_ratio: float = 0.25, secret_key: int = 15485863) -> float:
-    """
-    Quick, informal signal: what fraction of tokens in `text` landed on the
-    green list? Under no watermark this should sit near `green_ratio`.
-    """
+
     token_ids = tokenizer.encode(text)
     green_hits = 0
     total = 0
@@ -35,17 +32,7 @@ def detect_watermark(
     secret_key: int = 15485863,
     z_threshold: float = 4.0,
 ) -> dict:
-    """
-    Formal watermark detection via a z-test for proportions.
 
-    Treats each token's green/red membership as a binomial trial with
-    success probability `green_ratio` under the null hypothesis of no
-    watermark, then computes how many standard deviations the observed
-    green count is above what chance alone would produce.
-
-    z > z_threshold (conventionally 4.0) is treated as strong evidence of
-    a watermark, per the convention in the watermarking literature.
-    """
     token_ids = tokenizer.encode(text)
 
     green_hits = 0

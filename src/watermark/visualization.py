@@ -9,13 +9,7 @@ from .green_list import get_green_list
 
 
 def highlight_tokens(tokenizer, text: str, green_ratio: float = 0.25, secret_key: int = 15485863) -> str:
-    """
-    Returns an HTML string with each token wrapped in a coloured <span>:
-    green background = token was on the green list (given the previous
-    token), red background = token was on the red list. The very first
-    token has no "previous token" to seed a green list, so it's shown
-    in neutral grey.
-    """
+
     token_ids = tokenizer.encode(text)
     spans = []
 

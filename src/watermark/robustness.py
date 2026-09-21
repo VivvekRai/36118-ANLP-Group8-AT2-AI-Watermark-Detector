@@ -30,14 +30,7 @@ def evaluate_robustness(
     remove_watermark_fn: Callable[[str], str],
     max_new_tokens: int = 40,
 ) -> List[dict]:
-    """
-    For each prompt: generate watermarked text, run it through
-    `remove_watermark_fn`, and compare detection results before/after.
 
-    A drop in z-score after the attack indicates the removal method is
-    working (expected, and a well-documented limitation of watermarking
-    under paraphrasing) -- not a flaw in the detector.
-    """
     results = []
     for prompt in prompts:
         original = generate_watermarked_text(tokenizer, model, prompt, max_new_tokens=max_new_tokens)

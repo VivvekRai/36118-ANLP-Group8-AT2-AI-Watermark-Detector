@@ -1,3 +1,9 @@
+"""
+Streamlit demo for the AI text watermarking generator + detector.
+
+This file is intentionally thin: all the actual watermarking logic lives in
+src/watermark/, so this is just wiring that logic up to a UI.
+"""
 import textwrap
 import threading
 import time
@@ -6,7 +12,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 from src.watermark import load_model, generate_watermarked_text, detect_watermark, highlight_tokens
-from src.watermark.robustness import remove_watermark_stub
+from src.watermark.removal import load_paraphraser, compound_attack
 
 st.set_page_config(page_title="AI Text Watermark Detector", page_icon="🟩", layout="wide")
 
@@ -342,11 +348,18 @@ def run_with_progress(placeholder, label, expected_seconds, func, *args, **kwarg
     """
     Runs func(*args, **kwargs) on a background thread while showing a
     percentage-based loader in placeholder. Returns func's result.
+
+    If func raises, the exception is re-raised here in the main thread
+    with a full traceback, instead of silently vanishing.
     """
     result_holder = {}
+    error_holder = {}
 
     def _run():
-        result_holder["value"] = func(*args, **kwargs)
+        try:
+            result_holder["value"] = func(*args, **kwargs)
+        except Exception as e:
+            error_holder["error"] = e
 
     thread = threading.Thread(target=_run)
     thread.start()
@@ -363,12 +376,20 @@ def run_with_progress(placeholder, label, expected_seconds, func, *args, **kwarg
     time.sleep(0.3)
     placeholder.empty()
 
+    if "error" in error_holder:
+        raise error_holder["error"]
+
     return result_holder["value"]
 
 
 @st.cache_resource(show_spinner=False)
 def get_model():
     return load_model("gpt2")
+
+
+@st.cache_resource(show_spinner=False)
+def get_paraphraser():
+    return load_paraphraser()
 
 
 if "model_loaded" not in st.session_state:
@@ -382,6 +403,7 @@ tokenizer, model = get_model()
 st.session_state.setdefault("check_text", "")
 st.session_state.setdefault("removal_text", "")
 st.session_state.setdefault("active_tab", "generate")
+st.session_state.setdefault("removal_version", 0)
 
 # ---- Header ----
 st.markdown("# AI TEXT WATERMARK DETECTOR")
@@ -429,7 +451,7 @@ def render_result(label, text, result):
 col_t1, col_t2 = st.columns(2)
 with col_t1:
     if st.button(
-        "🧬 GENERATE & DETECT", use_container_width=True,
+        "GENERATE & DETECT", use_container_width=True,
         type="primary" if st.session_state.active_tab == "generate" else "secondary",
         key="tab_btn_generate",
     ):
@@ -437,7 +459,7 @@ with col_t1:
         st.rerun()
 with col_t2:
     if st.button(
-        "🧪 REMOVAL LAB", use_container_width=True,
+        "REMOVAL LAB", use_container_width=True,
         type="primary" if st.session_state.active_tab == "removal" else "secondary",
         key="tab_btn_removal",
     ):
@@ -479,6 +501,7 @@ if st.session_state.active_tab == "generate":
             )
             st.session_state.check_text = generated
             st.session_state.removal_text = generated
+            st.session_state.removal_version += 1
 
     st.divider()
 
@@ -509,11 +532,61 @@ if st.session_state.active_tab == "generate":
                 detect_watermark, tokenizer, st.session_state.check_text, z_threshold=z_threshold,
             )
             st.session_state.removal_text = st.session_state.check_text
+            st.session_state.removal_version += 1
             st.divider()
-            render_result("Detection result", st.session_state.check_text, result)
+            render_result("Detection Result", st.session_state.check_text, result)
 
 # =========================================================
-# TAB 2: REMOVAL LAB (contents hidden for now)
+# TAB 2: REMOVAL LAB
 # =========================================================
 else:
-    st.info("🚧 Coming soon...")
+    st.markdown("### WATERMARK REMOVAL")
+    st.caption(
+        "Attacks watermarked text with a compound attack: a real paraphrasing "
+        "model (humarin/chatgpt_paraphraser_on_T5_base) rewrites the sentence, "
+        "then a WordNet synonym-swap pass further disrupts individual word "
+        "choices. Stacking both compounds the damage to the watermark beyond "
+        "either attack alone. The text below is auto-filled from the "
+        "Generate & Detect tab."
+    )
+
+    attack_text = st.text_area(
+        "TEXT TO ATTACK (auto-filled from the other tab, editable)",
+        value=st.session_state.removal_text,
+        height=150,
+        key=f"removal_input_{st.session_state.removal_version}",
+    )
+    remove_clicked = st.button("▶ REMOVE WATERMARK", use_container_width=True, type="primary", key="remove_btn")
+
+    if remove_clicked:
+        if not attack_text.strip():
+            st.warning("Please generate some text in the other tab first, or paste text here.")
+        else:
+            attack_loader = st.empty()
+            original_text = attack_text
+
+            def _run_compound_attack():
+                paraphrase_tokenizer, paraphrase_model = get_paraphraser()
+                return compound_attack(original_text, paraphrase_tokenizer, paraphrase_model)
+
+            attacked_text = run_with_progress(
+                attack_loader, "Paraphrasing + synonym-swap (attacking watermark)", 10,
+                _run_compound_attack,
+            )
+
+            original_result = detect_watermark(tokenizer, original_text)
+            attacked_result = detect_watermark(tokenizer, attacked_text)
+
+            st.divider()
+            st.markdown("### BEFORE ATTACK")
+            render_result("Original", original_text, original_result)
+
+            st.divider()
+            st.markdown("### AFTER ATTACK")
+            render_result("After compound attack", attacked_text, attacked_result)
+
+            z_drop = original_result["z_score"] - attacked_result["z_score"]
+            st.info(
+                f"Z-score dropped by {z_drop:.2f} after paraphrasing + synonym-swap. "
+                f"{'Watermark survived.' if attacked_result['is_watermarked'] else 'Watermark was defeated.'}"
+            )

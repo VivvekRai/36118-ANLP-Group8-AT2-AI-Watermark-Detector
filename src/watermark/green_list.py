@@ -16,21 +16,7 @@ def get_green_list(
     green_ratio: float = 0.25,
     secret_key: int = 15485863,
 ) -> set:
-    """
-    Deterministically compute the green-list token IDs for one generation
-    step, seeded by the previous token.
 
-    Parameters
-    ----------
-    prev_token_id : the token immediately before the position being generated
-    vocab_size : size of the tokenizer's vocabulary
-    green_ratio : fraction of the vocabulary considered "green" (default 25%)
-    secret_key : shared secret between generator and detector
-
-    Returns
-    -------
-    set of token IDs belonging to the green list at this step
-    """
     seed = (prev_token_id * secret_key) % (2**32)
 
     rng = torch.Generator()

@@ -16,13 +16,7 @@ def generate_watermarked_text(
     delta: float = 2.0,
     secret_key: int = 15485863,
 ) -> str:
-    """
-    Generate text with a green-list bias applied at every step.
 
-    `delta` controls watermark strength: higher values push generation more
-    strongly toward green-list tokens (more detectable) at the cost of more
-    distortion to natural-sounding text.
-    """
     input_ids = tokenizer.encode(prompt, return_tensors="pt")
 
     for _ in range(max_new_tokens):
@@ -47,10 +41,7 @@ def generate_watermarked_text(
 
 
 def generate_baseline_text(tokenizer, model, prompt: str, max_new_tokens: int = 40) -> str:
-    """
-    Standard generation with no green-list bias -- the negative control used
-    to validate the detector's false-positive rate.
-    """
+
     input_ids = tokenizer.encode(prompt, return_tensors="pt")
     with torch.no_grad():
         output = model.generate(
