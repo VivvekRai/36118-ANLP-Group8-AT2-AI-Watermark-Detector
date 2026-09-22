@@ -5,3 +5,4 @@ transformers
 streamlit
 sentencepiece
 nltk
+sentence-transformers

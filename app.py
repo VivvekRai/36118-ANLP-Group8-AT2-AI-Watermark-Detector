@@ -13,6 +13,7 @@ import streamlit.components.v1 as components
 
 from src.watermark import load_model, generate_watermarked_text, detect_watermark, highlight_tokens
 from src.watermark.removal import load_paraphraser, compound_attack
+from src.watermark.similarity import load_similarity_model, semantic_similarity
 
 st.set_page_config(page_title="AI Text Watermark Detector", page_icon="🟩", layout="wide")
 
@@ -392,6 +393,11 @@ def get_paraphraser():
     return load_paraphraser()
 
 
+@st.cache_resource(show_spinner=False)
+def get_similarity_model():
+    return load_similarity_model()
+
+
 if "model_loaded" not in st.session_state:
     progress_placeholder = st.empty()
     model = run_with_progress(progress_placeholder, "Loading GPT-2", 4, get_model)
@@ -577,6 +583,9 @@ else:
             original_result = detect_watermark(tokenizer, original_text)
             attacked_result = detect_watermark(tokenizer, attacked_text)
 
+            similarity_model = get_similarity_model()
+            similarity_score = semantic_similarity(similarity_model, original_text, attacked_text)
+
             st.divider()
             st.markdown("### BEFORE ATTACK")
             render_result("Original", original_text, original_result)
@@ -585,8 +594,20 @@ else:
             st.markdown("### AFTER ATTACK")
             render_result("After compound attack", attacked_text, attacked_result)
 
+            st.divider()
+            st.markdown("### ATTACK SUMMARY")
+
             z_drop = original_result["z_score"] - attacked_result["z_score"]
-            st.info(
-                f"Z-score dropped by {z_drop:.2f} after paraphrasing + synonym-swap. "
-                f"{'Watermark survived.' if attacked_result['is_watermarked'] else 'Watermark was defeated.'}"
+            outcome = "WATERMARK DEFEATED" if not attacked_result["is_watermarked"] else "WATERMARK SURVIVED"
+            meaning_label = (
+                "MEANING WELL PRESERVED" if similarity_score > 0.8
+                else "MEANING PARTIALLY PRESERVED" if similarity_score > 0.5
+                else "MEANING SIGNIFICANTLY CHANGED"
             )
+
+            col_a, col_b, col_c = st.columns(3)
+            col_a.metric("Z-SCORE DROP", f"{z_drop:.2f}")
+            col_b.metric("SEMANTIC SIMILARITY", f"{similarity_score:.1%}")
+            col_c.metric("OUTCOME", outcome.split()[1])
+
+            st.progress(similarity_score, text=f"{meaning_label} ({similarity_score:.1%} similarity to original)")
