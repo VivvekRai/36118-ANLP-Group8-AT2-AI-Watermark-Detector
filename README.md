@@ -62,18 +62,18 @@ Our detector only recognizes text watermarked with *our own* secret key. Paste i
 
 ## Project structure
 
-src/watermark/
-model_loader.py loads GPT-2
-green_list.py the core green/red vocabulary split
-generator.py watermarked + plain text generation
-detector.py the z-score statistical test
-visualization.py colors tokens green/red for display
-removal.py paraphrase attack + the compound attack
-synonym_attack.py WordNet-based synonym substitution
-similarity.py semantic similarity scoring between original and attacked text
-robustness.py batch evaluation harness (used in testing, not the live UI)
-app.py the Streamlit interface
-tests/hard_test.py batch testing across many prompts and attack types
+- src/watermark/
+- model_loader.py loads GPT-2
+- green_list.py the core green/red vocabulary split
+- generator.py watermarked + plain text generation
+- detector.py the z-score statistical test
+- visualization.py colors tokens green/red for display
+- removal.py paraphrase attack + the compound attack
+- synonym_attack.py WordNet-based synonym substitution
+- similarity.py semantic similarity scoring between original and attacked text
+- robustness.py batch evaluation harness (used in testing, not the live UI)
+- app.py the Streamlit interface
+- tests/hard_test.py batch testing across many prompts and attack types
 
 ## Team
 
