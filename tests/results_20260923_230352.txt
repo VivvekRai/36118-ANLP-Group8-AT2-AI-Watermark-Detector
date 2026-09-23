@@ -1,0 +1,93 @@
+Loading GPT-2...
+Loading paraphraser (humarin/chatgpt_paraphraser_on_T5_base)...
+Loading similarity model (all-MiniLM-L6-v2)...
+
+======================================================================
+TEST 1: FALSE POSITIVE RATE (unwatermarked baseline text)
+======================================================================
+  z=  0.44  green=27.9%  [ok]  The weather today is
+  z=  1.04  green=31.8%  [ok]  In recent economic news,
+  z=  0.44  green=27.9%  [ok]  Scientists have discovered that
+  z=  0.00  green=25.0%  [ok]  The history of Rome shows
+  z=  0.95  green=31.1%  [ok]  Cooking a good meal requires
+  z=  0.79  green=30.2%  [ok]  Modern architecture often features
+  z=  0.70  green=29.5%  [ok]  The stock market reacted to
+  z=  0.00  green=25.0%  [ok]  Education systems around the world
+  z= -0.18  green=23.8%  [ok]  Climate change affects
+  z= -1.67  green=14.0%  [ok]  The novel begins with
+
+  Mean z-score: 0.25
+  False positives: 0/10
+
+======================================================================
+TEST 2: DELTA SWEEP (watermark strength vs detectability)
+======================================================================
+  Delta   Mean Z    Detected    Min Z     Max Z     
+  0.5     1.20      0/5         -0.97     2.09      
+  1.0     2.62      0/5         2.09      3.26      
+  2.0     5.28      3/5         3.26      7.31      
+  3.0     7.35      5/5         6.45      8.19      
+  4.0     8.60      5/5         7.31      9.75      
+
+======================================================================
+TEST 3: ATTACK COMPARISON (weak vs strong vs compound)
+======================================================================
+
+  Prompt: The weather today is  (original z=5.37)
+    word deletion (weak)     after z=  3.12  drop=  2.26  similarity=83.1%  [DEFEATED]
+    paraphrase (strong)      after z= -0.79  drop=  6.16  similarity=74.8%  [DEFEATED]
+    compound (strongest)     after z=  2.71  drop=  2.66  similarity=86.3%  [DEFEATED]
+
+  Prompt: In recent economic news,  (original z=6.27)
+    word deletion (weak)     after z=  5.84  drop=  0.42  similarity=99.6%  [survived]
+    paraphrase (strong)      after z=  2.74  drop=  3.53  similarity=86.0%  [DEFEATED]
+    compound (strongest)     after z=  0.19  drop=  6.08  similarity=66.5%  [DEFEATED]
+
+  Prompt: Scientists have discovered that  (original z=4.67)
+    word deletion (weak)     after z=  3.01  drop=  1.66  similarity=87.8%  [DEFEATED]
+    paraphrase (strong)      after z=  0.19  drop=  4.48  similarity=89.6%  [DEFEATED]
+    compound (strongest)     after z= -0.52  drop=  5.18  similarity=77.1%  [DEFEATED]
+
+  Prompt: The history of Rome shows  (original z=7.31)
+    word deletion (weak)     after z=  6.01  drop=  1.30  similarity=94.6%  [survived]
+    paraphrase (strong)      after z=  2.32  drop=  4.99  similarity=77.8%  [DEFEATED]
+    compound (strongest)     after z=  2.80  drop=  4.52  similarity=81.4%  [DEFEATED]
+
+  Prompt: Cooking a good meal requires  (original z=6.61)
+    word deletion (weak)     after z=  5.81  drop=  0.81  similarity=93.4%  [survived]
+    paraphrase (strong)      after z=  2.67  drop=  3.95  similarity=72.7%  [DEFEATED]
+    compound (strongest)     after z=  0.08  drop=  6.53  similarity=55.0%  [DEFEATED]
+
+  Prompt: Modern architecture often features  (original z=6.43)
+    word deletion (weak)     after z=  4.23  drop=  2.19  similarity=89.1%  [survived]
+    paraphrase (strong)      after z=  1.46  drop=  4.97  similarity=83.6%  [DEFEATED]
+    compound (strongest)     after z=  0.37  drop=  6.06  similarity=66.4%  [DEFEATED]
+
+  SUMMARY
+  Attack                  Defeated    Mean drop   Mean similarity
+  word deletion (weak)    2/6         1.44        91.3%
+  paraphrase (strong)     6/6         4.68        80.8%
+  compound (strongest)    6/6         5.17        72.1%
+
+======================================================================
+TEST 4: EDGE CASES
+======================================================================
+
+  Case: 'empty string' -> ''
+    Handled gracefully: No tokens to analyze
+
+  Case: 'single word' -> 'Hello'
+    Handled gracefully: No tokens to analyze
+
+  Case: 'very short' -> 'AI is good.'
+    z=-1.00  green=0.0%  watermarked=False
+
+  Case: 'repeated word' -> 'the the the the the the the the the the'
+    z=-1.73  green=0.0%  watermarked=False
+
+  Case: 'numbers only' -> '12345 67890 11111 22222'
+    z=-0.82  green=12.5%  watermarked=False
+
+======================================================================
+DONE in 599.6 seconds
+======================================================================
