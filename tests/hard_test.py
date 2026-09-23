@@ -21,7 +21,7 @@ from src.watermark.similarity import load_similarity_model, semantic_similarity
 
 
 class Tee:
-    """Writes everything to both the terminal and a log file at once."""
+
     def __init__(self, *streams):
         self.streams = streams
 
