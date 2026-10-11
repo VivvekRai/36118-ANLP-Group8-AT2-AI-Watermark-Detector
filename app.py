@@ -9,10 +9,10 @@ import threading
 import time
 
 import streamlit as st
-import streamlit.components.v1 as components
 
 from src.watermark import load_model, generate_watermarked_text, detect_watermark, highlight_tokens
 from src.watermark.removal import load_paraphraser, compound_attack
+from src.watermark.detector import evidence_strength
 from src.watermark.similarity import load_similarity_model, semantic_similarity
 
 st.set_page_config(page_title="AI Text Watermark Detector", page_icon="🟩", layout="wide")
@@ -230,7 +230,7 @@ st.markdown(
 def _loader_component(pct_display, label):
     """
     Fully self-contained loader (inline CSS + HTML) for use inside
-    components.html, which renders in an isolated iframe and cannot see
+    st.iframe, which renders in an isolated iframe and cannot see
     the main page's stylesheet.
     """
     dots = ""
@@ -342,7 +342,7 @@ def _loader_component(pct_display, label):
 def show_loader(placeholder, label, pct=None):
     pct_display = f'<div class="loader-pct">{pct}%</div>' if pct is not None else ""
     with placeholder:
-        components.html(_loader_component(pct_display, label), height=280)
+        st.iframe(_loader_component(pct_display, label), height=280)
 
 
 def run_with_progress(placeholder, label, expected_seconds, func, *args, **kwargs):
@@ -405,11 +405,48 @@ if "model_loaded" not in st.session_state:
 
 tokenizer, model = get_model()
 
-# ---- Session state defaults (must exist before the widgets that use them as keys) ----
-st.session_state.setdefault("check_text", "")
-st.session_state.setdefault("removal_text", "")
+# ---- GPT-2 can only read 1024 tokens in total (prompt + newly generated text) ----
+GEN_NEW_TOKENS = 40
+CONTEXT_MARGIN = 8  # small safety gap
+
+
+def fit_prompt_to_context(prompt, max_new_tokens=GEN_NEW_TOKENS):
+    """
+    Trim an over-long prompt so prompt + new tokens fit in GPT-2's context window.
+    Keeps the END of the prompt, since the most recent text matters most.
+    Returns (prompt_to_use, was_trimmed, original_token_count, kept_token_count).
+    """
+    context_limit = getattr(model.config, "n_positions", 1024)
+    budget = context_limit - max_new_tokens - CONTEXT_MARGIN
+    token_ids = tokenizer(prompt).input_ids
+    if len(token_ids) <= budget:
+        return prompt, False, len(token_ids), len(token_ids)
+    kept_ids = token_ids[-budget:]
+    return tokenizer.decode(kept_ids), True, len(token_ids), len(kept_ids)
+
+
+# ---- Session state defaults ----
+# Widgets inside a tab are deleted by Streamlit when that tab is not drawn, so the
+# real values live under plain "s_" keys, which survive tab switches.
 st.session_state.setdefault("active_tab", "generate")
-st.session_state.setdefault("removal_version", 0)
+st.session_state.setdefault("s_prompt", "")
+st.session_state.setdefault("s_delta", 2.0)
+st.session_state.setdefault("s_check", "")
+st.session_state.setdefault("s_z", 4.0)
+st.session_state.setdefault("s_removal", "")
+st.session_state.setdefault("s_detect", None)
+st.session_state.setdefault("s_attack", None)
+
+
+def sync_widget(widget_key, saved_key):
+    """Push the saved value into the widget key just before the widget is drawn."""
+    st.session_state[widget_key] = st.session_state[saved_key]
+
+
+def save_widget(widget_key, saved_key):
+    """on_change callback: copy the widget's new value into the saved key."""
+    st.session_state[saved_key] = st.session_state[widget_key]
+
 
 # ---- Header ----
 st.markdown("# AI TEXT WATERMARK DETECTOR")
@@ -434,19 +471,64 @@ with st.expander("ℹ️  HOW THIS WORKS, AND WHAT IT CANNOT DO"):
 st.divider()
 
 
-def render_result(label, text, result):
+MIN_RELIABLE_TOKENS = 30  # below this, z-scores are too noisy to trust
+
+
+def has_error(result):
+    """True if detect_watermark returned an error dict (e.g. fewer than 2 tokens)."""
+    return (not isinstance(result, dict)) or ("error" in result)
+
+
+def evidence_note(result, threshold):
+    """One plain-English sentence explaining the verdict."""
+    z = result["z_score"]
+    stats = (
+        f"{result['green_fraction']:.0%} of tokens matched the green list, "
+        f"against about 25% expected by chance (z = {z:.1f})."
+    )
+    limit = f"your threshold of {threshold:.1f}" if threshold is not None else "the threshold"
+    if result["is_watermarked"]:
+        return f"{stats} That is above {limit}, so the text is flagged as watermarked."
+    if z >= 2:
+        return f"{stats} That is a little more than chance, but below {limit}, so the text is not flagged."
+    return f"{stats} This is what ordinary text looks like, so no trace of this watermark was found."
+
+
+def render_result(label, text, result, threshold=None):
     st.markdown(f"#### {label}")
+
+    if has_error(result):
+        st.warning(
+            "Not enough text to analyse. Enter at least a full sentence. "
+            "A single word has no previous token to build the green list from."
+        )
+        return
+
     st.text_area(" ", text, height=120, label_visibility="collapsed", key=f"display_{label}_{id(result)}")
+
+    if result["total_tokens"] < MIN_RELIABLE_TOKENS:
+        st.info(
+            f"Only {result['total_tokens']} tokens were scored. Short text gives "
+            f"unreliable verdicts, so aim for {MIN_RELIABLE_TOKENS}+ tokens."
+        )
 
     if result["is_watermarked"]:
         st.markdown('<div class="verdict-banner verdict-yes">🟢 WATERMARKED</div>', unsafe_allow_html=True)
     else:
         st.markdown('<div class="verdict-banner verdict-no">🔴 NOT WATERMARKED</div>', unsafe_allow_html=True)
 
+    st.caption(evidence_note(result, threshold))
+
     col1, col2, col3 = st.columns(3)
     col1.metric("GREEN FRACTION", f"{result['green_fraction']:.1%}")
     col2.metric("Z-SCORE", f"{result['z_score']:.2f}")
-    col3.metric("CONFIDENCE", result["confidence"].upper())
+    col3.metric(
+        "EVIDENCE",
+        evidence_strength(result["z_score"]).upper(),
+        help="How far the green-token rate is above chance, from the z-score alone: "
+             "NONE (below 2), WEAK (2 to 4), MODERATE (4 to 6), STRONG (above 6). "
+             "It does not depend on the threshold slider.",
+    )
 
     st.caption("🟩 matched the green list, 🟥 did not, ⬜ first token (no previous token to seed a list)")
     highlighted_html = highlight_tokens(tokenizer, text)
@@ -479,15 +561,25 @@ st.divider()
 # =========================================================
 if st.session_state.active_tab == "generate":
     st.markdown("### GENERATE")
+
+    sync_widget("w_prompt", "s_prompt")
     prompt_input = st.text_area(
         "PROMPT",
         height=120,
         placeholder="> The future of artificial intelligence is...",
-        key="prompt_input",
+        key="w_prompt",
+        on_change=save_widget,
+        args=("w_prompt", "s_prompt"),
     )
+
+    sync_widget("w_delta", "s_delta")
     delta = st.slider(
-        "DELTA (WATERMARK STRENGTH)", 0.5, 5.0, 2.0, 0.5,
+        "DELTA (WATERMARK STRENGTH)",
+        min_value=0.5, max_value=5.0, step=0.5,
         help="Controls how strongly generation is pushed toward the green list.",
+        key="w_delta",
+        on_change=save_widget,
+        args=("w_delta", "s_delta"),
     )
     st.markdown(
         '<p class="field-hint">Low = subtle, natural-sounding, but harder to detect. '
@@ -500,26 +592,43 @@ if st.session_state.active_tab == "generate":
         if not prompt_input.strip():
             st.warning("Please enter a prompt first.")
         else:
+            safe_prompt, was_trimmed, original_len, kept_len = fit_prompt_to_context(prompt_input)
+            if was_trimmed:
+                st.warning(
+                    f"Your prompt is {original_len} tokens, but GPT-2 can only read about "
+                    f"{kept_len + GEN_NEW_TOKENS} tokens in total (prompt plus new text). "
+                    f"Only the last {kept_len} tokens of your prompt were used."
+                )
             gen_loader = st.empty()
             generated = run_with_progress(
                 gen_loader, "Running GPT-2 (generating)", 6,
-                generate_watermarked_text, tokenizer, model, prompt_input, delta=delta,
+                generate_watermarked_text, tokenizer, model, safe_prompt,
+                delta=delta, max_new_tokens=GEN_NEW_TOKENS,
             )
-            st.session_state.check_text = generated
-            st.session_state.removal_text = generated
-            st.session_state.removal_version += 1
+            st.session_state.s_check = generated
+            st.session_state.s_removal = generated
+            st.session_state.s_detect = None
 
     st.divider()
 
     st.markdown("### DETECT")
+    sync_widget("w_check", "s_check")
     st.text_area(
         "TEXT TO CHECK (auto-filled after generating, editable, or paste your own)",
         height=150,
-        key="check_text",
+        key="w_check",
+        on_change=save_widget,
+        args=("w_check", "s_check"),
     )
+
+    sync_widget("w_z", "s_z")
     z_threshold = st.slider(
-        "Z-SCORE THRESHOLD", 2.0, 6.0, 4.0, 0.5,
+        "Z-SCORE THRESHOLD",
+        min_value=2.0, max_value=6.0, step=0.5,
         help="How confident the detector needs to be before calling something watermarked.",
+        key="w_z",
+        on_change=save_widget,
+        args=("w_z", "s_z"),
     )
     st.markdown(
         '<p class="field-hint">Low = catches weaker watermarks, but more risk of a false alarm. '
@@ -529,18 +638,30 @@ if st.session_state.active_tab == "generate":
     detect_clicked = st.button("▶ DETECT", use_container_width=True, type="primary", key="detect_btn")
 
     if detect_clicked:
-        if not st.session_state.check_text.strip():
+        if not st.session_state.s_check.strip():
             st.warning("Please generate or paste some text first.")
         else:
             detect_loader = st.empty()
-            result = run_with_progress(
+            analysed_text = st.session_state.s_check
+            raw_result = run_with_progress(
                 detect_loader, "Running GPT-2 (analyzing tokens)", 2,
-                detect_watermark, tokenizer, st.session_state.check_text, z_threshold=z_threshold,
+                detect_watermark, tokenizer, analysed_text, z_threshold=z_threshold,
             )
-            st.session_state.removal_text = st.session_state.check_text
-            st.session_state.removal_version += 1
-            st.divider()
-            render_result("Detection Result", st.session_state.check_text, result)
+            st.session_state.s_detect = {"text": analysed_text, "result": raw_result}
+            st.session_state.s_removal = analysed_text
+
+    # Drawn on every run (not only on the click run), so it survives slider moves
+    # and tab switches.
+    saved_detect = st.session_state.s_detect
+    if saved_detect is not None:
+        st.divider()
+        shown_result = dict(saved_detect["result"])
+        if not has_error(shown_result):
+            # Re-derive the verdict from the CURRENT threshold slider.
+            shown_result["is_watermarked"] = shown_result["z_score"] > z_threshold
+        if saved_detect["text"] != st.session_state.s_check:
+            st.info("The text above has changed since this result was produced. Click DETECT to refresh it.")
+        render_result("Detection Result", saved_detect["text"], shown_result, z_threshold)
 
 # =========================================================
 # TAB 2: REMOVAL LAB
@@ -549,19 +670,38 @@ else:
     st.markdown("### WATERMARK REMOVAL")
     st.caption(
         "Attacks watermarked text with a compound attack: a real paraphrasing "
-        "model (humarin/chatgpt_paraphraser_on_T5_base) rewrites the sentence, "
-        "then a WordNet synonym-swap pass further disrupts individual word "
-        "choices. Stacking both compounds the damage to the watermark beyond "
-        "either attack alone. The text below is auto-filled from the "
-        "Generate & Detect tab."
+        "model (humarin/chatgpt_paraphraser_on_T5_base) rewrites the text, then "
+        "a WordNet synonym-swap pass adds word-level noise. In our recorded "
+        "tests the synonym step lowered similarity without reliably lowering "
+        "the z-score more than paraphrasing alone. The text below is "
+        "auto-filled from the Generate & Detect tab."
     )
 
+    sync_widget("w_removal", "s_removal")
     attack_text = st.text_area(
         "TEXT TO ATTACK (auto-filled from the other tab, editable)",
-        value=st.session_state.removal_text,
         height=150,
-        key=f"removal_input_{st.session_state.removal_version}",
+        key="w_removal",
+        on_change=save_widget,
+        args=("w_removal", "s_removal"),
     )
+
+    sync_widget("w_z_removal", "s_z")
+    removal_threshold = st.slider(
+        "Z-SCORE THRESHOLD",
+        min_value=2.0, max_value=6.0, step=0.5,
+        help="How confident the detector needs to be before calling something watermarked. "
+             "Shared with the Generate & Detect tab.",
+        key="w_z_removal",
+        on_change=save_widget,
+        args=("w_z_removal", "s_z"),
+    )
+    st.markdown(
+        '<p class="field-hint">Applies to both the before and after verdicts. '
+        'Changing it updates the results below without re-running the attack.</p>',
+        unsafe_allow_html=True,
+    )
+
     remove_clicked = st.button("▶ REMOVE WATERMARK", use_container_width=True, type="primary", key="remove_btn")
 
     if remove_clicked:
@@ -576,29 +716,72 @@ else:
                 return compound_attack(original_text, paraphrase_tokenizer, paraphrase_model)
 
             attacked_text = run_with_progress(
-                attack_loader, "Paraphrasing + synonym-swap (attacking watermark)", 10,
+                attack_loader, "Paraphrasing + synonym-swap (attacking watermark)",
+                max(10, len(original_text.split()) / 6),
                 _run_compound_attack,
             )
 
             original_result = detect_watermark(tokenizer, original_text)
             attacked_result = detect_watermark(tokenizer, attacked_text)
 
-            similarity_model = get_similarity_model()
-            similarity_score = semantic_similarity(similarity_model, original_text, attacked_text)
+            if has_error(original_result) or has_error(attacked_result):
+                st.session_state.s_attack = {"too_short": True, "original_text": original_text}
+            else:
+                similarity_model = get_similarity_model()
+                similarity_score = float(semantic_similarity(similarity_model, original_text, attacked_text))
+                st.session_state.s_attack = {
+                    "too_short": False,
+                    "original_text": original_text,
+                    "attacked_text": attacked_text,
+                    "original_result": original_result,
+                    "attacked_result": attacked_result,
+                    "similarity": similarity_score,
+                }
 
-            st.divider()
+    # Drawn on every run (not only on the click run), so it survives slider moves
+    # and tab switches.
+    saved_attack = st.session_state.s_attack
+    if saved_attack is not None:
+        st.divider()
+        if saved_attack["original_text"] != st.session_state.s_removal:
+            st.info("The text above has changed since this attack was run. Click REMOVE WATERMARK to refresh it.")
+
+        if saved_attack["too_short"]:
+            st.warning(
+                "The original or the attacked text is too short to score. "
+                "Try a longer input, or paste a full sentence or two."
+            )
+        else:
+            original_text = saved_attack["original_text"]
+            attacked_text = saved_attack["attacked_text"]
+            similarity_score = saved_attack["similarity"]
+
+            # Re-derive both verdicts from the CURRENT threshold slider.
+            original_result = dict(saved_attack["original_result"])
+            attacked_result = dict(saved_attack["attacked_result"])
+            original_result["is_watermarked"] = original_result["z_score"] > removal_threshold
+            attacked_result["is_watermarked"] = attacked_result["z_score"] > removal_threshold
+
             st.markdown("### BEFORE ATTACK")
-            render_result("Original", original_text, original_result)
+            render_result("Original", original_text, original_result, removal_threshold)
 
             st.divider()
             st.markdown("### AFTER ATTACK")
-            render_result("After compound attack", attacked_text, attacked_result)
+            render_result("After compound attack", attacked_text, attacked_result, removal_threshold)
 
             st.divider()
             st.markdown("### ATTACK SUMMARY")
 
             z_drop = original_result["z_score"] - attacked_result["z_score"]
-            outcome = "WATERMARK DEFEATED" if not attacked_result["is_watermarked"] else "WATERMARK SURVIVED"
+            original_detected = original_result["is_watermarked"]
+
+            if not original_detected:
+                outcome_label = "N/A"
+            elif attacked_result["is_watermarked"]:
+                outcome_label = "SURVIVED"
+            else:
+                outcome_label = "DEFEATED"
+
             meaning_label = (
                 "MEANING WELL PRESERVED" if similarity_score > 0.8
                 else "MEANING PARTIALLY PRESERVED" if similarity_score > 0.5
@@ -608,6 +791,16 @@ else:
             col_a, col_b, col_c = st.columns(3)
             col_a.metric("Z-SCORE DROP", f"{z_drop:.2f}")
             col_b.metric("SEMANTIC SIMILARITY", f"{similarity_score:.1%}")
-            col_c.metric("OUTCOME", outcome.split()[1])
+            col_c.metric("OUTCOME", outcome_label)
 
-            st.progress(similarity_score, text=f"{meaning_label} ({similarity_score:.1%} similarity to original)")
+            if not original_detected:
+                st.info(
+                    "The original text was not detected as watermarked at this threshold, so there "
+                    "was no watermark to remove. This result does not count as a successful attack. "
+                    "Use text produced by GENERATE, raise Delta, or lower the threshold, and try again."
+                )
+
+            st.progress(
+                min(max(similarity_score, 0.0), 1.0),
+                text=f"{meaning_label} ({similarity_score:.1%} similarity to original)",
+            )

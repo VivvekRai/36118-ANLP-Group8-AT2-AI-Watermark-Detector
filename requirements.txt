@@ -1,8 +1,8 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 -e .
-torch
-transformers
-streamlit
-sentencepiece
-nltk
-sentence-transformers
+torch==2.14.0
+transformers==5.17.0
+streamlit==1.64.0
+sentencepiece==0.2.2
+nltk==3.10.3
+sentence-transformers==6.1.0

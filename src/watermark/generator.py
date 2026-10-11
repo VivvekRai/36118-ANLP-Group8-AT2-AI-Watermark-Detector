@@ -1,10 +1,34 @@
 """
 Text generation: watermarked (biased toward the green list at every step)
 and baseline (standard, unbiased generation used as a negative control).
+
+GPT-2 can only read 1024 tokens at once (prompt plus everything generated so
+far). Both functions therefore trim an over-long prompt, keeping its END, so
+that prompt + new tokens always fit in the model's context window.
 """
 import torch
 
 from .green_list import get_green_list
+
+
+def _context_limit(model) -> int:
+    """How many tokens the model can read at once (1024 for GPT-2)."""
+    return getattr(model.config, "n_positions", 1024)
+
+
+def _encode_prompt(tokenizer, model, prompt: str, max_new_tokens: int):
+    """Encode the prompt and trim it so prompt + max_new_tokens fits the context window."""
+    input_ids = tokenizer.encode(prompt, return_tensors="pt")
+
+    # An empty prompt has no previous token to build a green list from,
+    # so start from the end-of-text token instead.
+    if input_ids.shape[1] == 0:
+        input_ids = torch.tensor([[tokenizer.eos_token_id]])
+
+    room_for_prompt = max(1, _context_limit(model) - max_new_tokens)
+    if input_ids.shape[1] > room_for_prompt:
+        input_ids = input_ids[:, -room_for_prompt:]
+    return input_ids
 
 
 def generate_watermarked_text(
@@ -17,11 +41,16 @@ def generate_watermarked_text(
     secret_key: int = 15485863,
 ) -> str:
 
-    input_ids = tokenizer.encode(prompt, return_tensors="pt")
+    input_ids = _encode_prompt(tokenizer, model, prompt, max_new_tokens)
+    max_context = _context_limit(model)
 
     for _ in range(max_new_tokens):
         with torch.no_grad():
-            outputs = model(input_ids)
+            # Sliding window: never feed the model more than it can read.
+            # (The green list depends only on the previous token, so the
+            # watermark is unaffected.)
+            model_input = input_ids[:, -max_context:]
+            outputs = model(model_input)
             logits = outputs.logits[0, -1, :]
 
         prev_token_id = input_ids[0, -1].item()
@@ -42,7 +71,7 @@ def generate_watermarked_text(
 
 def generate_baseline_text(tokenizer, model, prompt: str, max_new_tokens: int = 40) -> str:
 
-    input_ids = tokenizer.encode(prompt, return_tensors="pt")
+    input_ids = _encode_prompt(tokenizer, model, prompt, max_new_tokens)
     with torch.no_grad():
         output = model.generate(
             input_ids,

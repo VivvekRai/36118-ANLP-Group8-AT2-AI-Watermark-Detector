@@ -8,6 +8,25 @@ import math
 from .green_list import get_green_list
 
 
+def evidence_strength(z_score: float) -> str:
+    """
+    Plain-language strength of the statistical evidence, based only on the
+    z-score (so it does not change when the user moves the threshold slider).
+
+        z < 2        none      (what ordinary text looks like)
+        2 <= z < 4   weak      (slightly above chance)
+        4 <= z <= 6  moderate  (p roughly 3e-5 or smaller)
+        z > 6        strong    (p roughly 1e-9 or smaller)
+    """
+    if z_score > 6:
+        return "strong"
+    if z_score >= 4:
+        return "moderate"
+    if z_score >= 2:
+        return "weak"
+    return "none"
+
+
 def check_green_fraction(tokenizer, text: str, green_ratio: float = 0.25, secret_key: int = 15485863) -> float:
 
     token_ids = tokenizer.encode(text)
@@ -61,5 +80,7 @@ def detect_watermark(
         "green_fraction": green_hits / total,
         "z_score": z_score,
         "is_watermarked": is_watermarked,
+        "evidence": evidence_strength(z_score),
+        # Kept so older code that reads "confidence" does not break. The UI no longer shows it.
         "confidence": "high" if z_score > 6 else "moderate" if z_score > z_threshold else "low",
     }
