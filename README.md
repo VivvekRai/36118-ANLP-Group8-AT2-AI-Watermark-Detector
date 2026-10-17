@@ -47,12 +47,14 @@ Everything runs on CPU with no API keys. Watermarking needs direct access to the
 
 Package versions are pinned in `requirements.txt` (tested on Python 3.14).
 
-Reproduce the results
+## Reproduce the results
 
+```
 python tests/hard_test.py --seed 1
 python tests/hard_test.py --seed 2
 python tests/hard_test.py --seed 3
 python tests/summarise_runs.py > tests/summary.txt
+```
 
 Each run takes about 7 to 9 minutes on a CPU. Results are repeatable on the same machine and package versions, but we have not tested other machines.
 
