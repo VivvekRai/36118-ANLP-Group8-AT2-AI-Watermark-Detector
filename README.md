@@ -18,7 +18,7 @@ Our original goal was to detect watermarks in commercial models such as ChatGPT 
 - A Removal Lab where we try to break our own watermark: a paraphrasing model rewrites the text, then a synonym-substitution pass further disrupts individual word choices
 - A semantic similarity check that scores how much of the original meaning survived the attack, so "the watermark was defeated" does not just mean "we turned the text into gibberish"
 
-The most interesting result is the last combination. In our tests the watermark held up against light edits, but a paraphrase attack lowered the z-score sharply while keeping most of the original meaning. This is a known weakness of green-list watermarking in general and is discussed in the literature (see References), not a bug specific to our build.
+The most interesting result is how little editing it takes. In our final runs (three seeds, 15 watermarked texts that were detected before any attack), one pass through the paraphrasing model removed detection from 14 of 15 texts, and the compound attack from all 15, while mean similarity stayed near 0.8. Random deletion of 15% of the words removed it from only 3 of 15. Adding synonyms to the same paraphrase gave no further benefit. This is a known weakness of green-list watermarking in general and is discussed in the literature (see References), not a bug specific to our build.
 
 ## Try it
 
@@ -47,6 +47,15 @@ Everything runs on CPU with no API keys. Watermarking needs direct access to the
 
 Package versions are pinned in `requirements.txt` (tested on Python 3.14).
 
+Reproduce the results
+
+python tests/hard_test.py --seed 1
+python tests/hard_test.py --seed 2
+python tests/hard_test.py --seed 3
+python tests/summarise_runs.py > tests/summary.txt
+
+Each run takes about 7 to 9 minutes on a CPU. Results are repeatable on the same machine and package versions, but we have not tested other machines.
+
 ## How it works
 
 At every step GPT-2 looks at the previous token, hashes it together with a secret key, and uses the result to split the whole vocabulary (about 50,000 tokens) into a "green" list (25%) and a "red" list (75%). A bias δ is added to the green tokens' scores before the next token is chosen, so green tokens become more likely.
@@ -68,12 +77,13 @@ Other limits:
 
 ## What we found
 
-These are results from our own runs. Exact numbers vary with prompt, δ, text length and random seed. See `tests/hard_test.py` to reproduce.
+These results come from three seeded runs of tests/hard_test.py (seeds 1 to 3) on commit 1917d9f. The raw texts and scores are saved in tests/results_*_seed*.json, and tests/summary.txt pools them. The sample is small, so treat the results as preliminary.
 
-- Watermarked text at moderate-to-high δ usually gave z-scores well above the threshold of 4
-- Plain text without a watermark gave z-scores near 0
-- A paraphrase plus synonym-swap attack lowered z-scores substantially and often flipped the verdict
-- The attacked text kept a fair amount of the original meaning, according to the similarity score. This is a trade-off between breaking the watermark and keeping the text useful
+- With no watermark (δ = 0), none of 30 GPT-2 texts was flagged. These are model texts, not human writing, so this is not a false-positive rate for human text.
+- At δ = 2.0, 12 of 15 texts were detected. At δ = 3.0 and 4.0, all 15 were. At δ = 0.5, none were.
+- Of the 15 detected texts, paraphrasing defeated 14, the compound attack 15, and random deletion 3.
+- Rewrites that removed the watermark kept a mean MiniLM similarity of about 0.80. Similarity is a rough proxy, not a measure of meaning.
+- Applying the synonym step to the same paraphrase changed the mean z by -0.08 and lowered similarity by about 0.04, so it added nothing measurable.
 
 ## Project structure
 
@@ -90,13 +100,18 @@ src/watermark/
     similarity.py               semantic similarity between original and attacked text
     robustness.py               batch evaluation harness (testing, not the live UI)
 tests/
-    hard_test.py                batch testing across many prompts and attack types
+    hard_test.py                batch tests with fixed seeds (python tests/hard_test.py --seed 1)
+    summarise_runs.py           pools the saved runs into tests/summary.txt
+    make_fig4.py                draws the Figure 4 scatter plot from the saved runs
     smoke_test.py               quick checks of the logic and the app (python tests/smoke_test.py)
+    results_*_seed*.txt/.json   saved results of the three final runs
+    summary.txt                 pooled results
+docs/                           figures
 ```
 
 ## Team
 
-Group 8, 36118 Applied NLP, TD School, UTS.
+Team Aqua, Group 8, 36118 Applied NLP, TD School, UTS.
 
 ## References
 
