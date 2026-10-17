@@ -259,7 +259,8 @@ def environment_info():
             info[pkg] = "unknown"
     try:
         info["git_commit"] = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"], text=True).strip()
-        dirty = subprocess.check_output(["git", "status", "--porcelain"], text=True).strip()
+        dirty = [line for line in subprocess.check_output(["git", "status", "--porcelain"], text=True).splitlines()
+                 if "tests/results_" not in line]
         info["git_uncommitted_changes"] = bool(dirty)
     except Exception:
         info["git_commit"] = "unknown"
