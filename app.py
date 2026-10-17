@@ -1,3 +1,4 @@
+import math
 import textwrap
 import threading
 import time
@@ -350,13 +351,20 @@ def run_with_progress(placeholder, label, expected_seconds, func, *args, **kwarg
     thread.start()
 
     start = time.time()
+    # Use the time this step really took last time, once it has run before
+    # (the first run also loads models, so it is not a fair measurement).
+    expected_seconds = st.session_state.get("_secs_" + label, expected_seconds)
     while thread.is_alive():
         elapsed = time.time() - start
-        pct = min(95, int((elapsed / expected_seconds) * 100))
+        pct = int(95 * (1 - math.exp(-3 * elapsed / expected_seconds)))
         show_loader(placeholder, label, pct)
         time.sleep(0.1)
 
     thread.join()
+    runs_so_far = st.session_state.get("_runs_" + label, 0)
+    if runs_so_far >= 1:
+        st.session_state["_secs_" + label] = max(time.time() - start, 1.0)
+    st.session_state["_runs_" + label] = runs_so_far + 1
     show_loader(placeholder, label, 100)
     time.sleep(0.3)
     placeholder.empty()
@@ -693,22 +701,23 @@ else:
 
             def _run_compound_attack():
                 paraphrase_tokenizer, paraphrase_model = get_paraphraser()
-                return compound_attack(original_text, paraphrase_tokenizer, paraphrase_model)
+                attacked = compound_attack(original_text, paraphrase_tokenizer, paraphrase_model)
+                orig_res = detect_watermark(tokenizer, original_text)
+                att_res = detect_watermark(tokenizer, attacked)
+                sim = None
+                if not (has_error(orig_res) or has_error(att_res)):
+                    sim = float(semantic_similarity(get_similarity_model(), original_text, attacked))
+                return attacked, orig_res, att_res, sim
 
-            attacked_text = run_with_progress(
+            attacked_text, original_result, attacked_result, similarity_score = run_with_progress(
                 attack_loader, "Paraphrasing + synonym-swap (attacking watermark)",
                 max(10, len(original_text.split()) / 6),
                 _run_compound_attack,
             )
 
-            original_result = detect_watermark(tokenizer, original_text)
-            attacked_result = detect_watermark(tokenizer, attacked_text)
-
-            if has_error(original_result) or has_error(attacked_result):
+            if similarity_score is None:
                 st.session_state.s_attack = {"too_short": True, "original_text": original_text}
             else:
-                similarity_model = get_similarity_model()
-                similarity_score = float(semantic_similarity(similarity_model, original_text, attacked_text))
                 st.session_state.s_attack = {
                     "too_short": False,
                     "original_text": original_text,
