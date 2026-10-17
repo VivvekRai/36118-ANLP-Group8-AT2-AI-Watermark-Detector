@@ -1,21 +1,3 @@
-r"""
-Hard testing script: runs the full pipeline (generate, detect, and attacks)
-across many prompts to produce statistics for the report, rather than relying
-on one-off manual UI clicks.
-
-Each run takes a seed, so it can be repeated exactly (same machine and package
-versions). Every run saves two files in tests/:
-  results_<time>_seed<N>.txt   the terminal output
-  results_<time>_seed<N>.json  every sample: z-score, green fraction, token
-                               counts, verdicts, similarity and the full text
-
-Run from the project root, three times, with different seeds:
-    python tests\hard_test.py --seed 1
-    python tests\hard_test.py --seed 2
-    python tests\hard_test.py --seed 3
-Then pool them with:
-    python tests\summarise_runs.py
-"""
 import argparse
 import datetime
 import json
@@ -86,7 +68,7 @@ def section(title):
 
 
 def seed_everything(seed):
-    """Seed every random source we use. Returns a RNG for the synonym step."""
+
     random.seed(seed)
     torch.manual_seed(seed)
     try:
@@ -112,7 +94,7 @@ def seed_everything(seed):
 
 
 def analyse(tokenizer, text):
-    """Detection summary for one text, safe for very short input."""
+
     n_tokens = len(tokenizer.encode(text)) if text else 0
     result = detect_watermark(tokenizer, text, z_threshold=Z_THRESHOLD)
     if "error" in result:

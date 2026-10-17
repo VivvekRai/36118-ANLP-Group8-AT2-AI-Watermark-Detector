@@ -1,23 +1,15 @@
-"""
-Text generation: watermarked (biased toward the green list at every step)
-and baseline (standard, unbiased generation used as a negative control).
-
-GPT-2 can only read 1024 tokens at once (prompt plus everything generated so
-far). Both functions therefore trim an over-long prompt, keeping its END, so
-that prompt + new tokens always fit in the model's context window.
-"""
 import torch
 
 from .green_list import get_green_list
 
 
 def _context_limit(model) -> int:
-    """How many tokens the model can read at once (1024 for GPT-2)."""
+
     return getattr(model.config, "n_positions", 1024)
 
 
 def _encode_prompt(tokenizer, model, prompt: str, max_new_tokens: int):
-    """Encode the prompt and trim it so prompt + max_new_tokens fits the context window."""
+
     input_ids = tokenizer.encode(prompt, return_tensors="pt")
 
     # An empty prompt has no previous token to build a green list from,

@@ -1,23 +1,10 @@
-"""
-Watermark detection: a formal statistical test (z-score for proportions)
-answering "is the green-token rate high enough to be very unlikely by
-chance?", plus a lighter-weight helper for quick, informal checks.
-"""
 import math
 
 from .green_list import get_green_list
 
 
 def evidence_strength(z_score: float) -> str:
-    """
-    Plain-language strength of the statistical evidence, based only on the
-    z-score (so it does not change when the user moves the threshold slider).
 
-        z < 2        none      (what ordinary text looks like)
-        2 <= z < 4   weak      (slightly above chance)
-        4 <= z <= 6  moderate  (p roughly 3e-5 or smaller)
-        z > 6        strong    (p roughly 1e-9 or smaller)
-    """
     if z_score > 6:
         return "strong"
     if z_score >= 4:

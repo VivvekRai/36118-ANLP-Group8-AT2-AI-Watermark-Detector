@@ -1,8 +1,3 @@
-"""
-Visual proof of watermarking: renders text as HTML with each token
-colour-coded by its green/red-list status, so the watermark pattern can be
-seen directly rather than only summarized as a z-score.
-"""
 import html
 
 from .green_list import get_green_list

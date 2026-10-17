@@ -1,14 +1,3 @@
-"""
-Robustness testing: measures how well watermark detection survives an
-attack (paraphrasing, word substitution, etc.), independent of what that
-attack actually is.
-
-`remove_watermark_stub` is a temporary placeholder (random word deletion)
-used only to validate the harness itself. It should be swapped for a
-teammate's real watermark-removal function -- nothing else here needs to
-change when that happens, since the harness only depends on the function
-signature `(text: str) -> str`.
-"""
 import random
 from typing import Callable, List
 
@@ -17,7 +6,7 @@ from .detector import detect_watermark
 
 
 def remove_watermark_stub(text: str, drop_prob: float = 0.15) -> str:
-    """TEMPORARY STUB -- replace with the team's real removal method."""
+
     words = text.split()
     kept = [w for w in words if random.random() > drop_prob]
     return " ".join(kept)

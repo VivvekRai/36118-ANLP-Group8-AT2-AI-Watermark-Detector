@@ -1,12 +1,3 @@
-"""
-Core green/red-list mechanism.
-
-At every generation step, the previous token (combined with a secret key)
-seeds a deterministic pseudorandom split of the vocabulary into a "green"
-list and a "red" list. Because the split is reproducible given the same
-previous token and secret key, it can be recomputed later by a detector
-with no access to the generation process itself.
-"""
 import torch
 
 

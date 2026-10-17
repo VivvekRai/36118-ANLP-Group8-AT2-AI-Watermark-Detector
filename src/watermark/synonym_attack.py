@@ -1,14 +1,3 @@
-"""
-Synonym-substitution attack: swaps individual words for WordNet synonyms.
-
-Weaker on its own than full paraphrasing (it only touches isolated words,
-not sentence structure). Used as a second pass on top of a paraphrase it
-adds word-level noise, at some cost in meaning.
-
-To keep the output readable it only swaps plain base-form words (not names,
-numbers, acronyms, helper verbs or inflected forms), and only accepts clean
-single-word replacements that are common, lowercase words.
-"""
 import random
 
 import nltk
@@ -58,12 +47,7 @@ _VOWELS = "aeiou"
 
 
 def _clean_candidates(word, wn_pos):
-    """Common, lowercase, single-word synonyms of at least 3 letters.
 
-    Only the three most common senses are used, and a synonym must appear at
-    least once in WordNet's frequency data. That drops proper nouns
-    ('Washington' for 'capital') and archaic words ('thither' for 'there').
-    """
     candidates = set()
     for syn in wordnet.synsets(word, pos=wn_pos)[:3]:
         for lemma in syn.lemmas():
@@ -81,7 +65,7 @@ def _clean_candidates(word, wn_pos):
 
 
 def _fix_articles(words, replaced):
-    """After a swap, make 'a' / 'an' agree with the new next word."""
+
     for i in range(len(words) - 1):
         if (i + 1) in replaced and words[i].lower() in ("a", "an"):
             wants_an = words[i + 1][0].lower() in _VOWELS

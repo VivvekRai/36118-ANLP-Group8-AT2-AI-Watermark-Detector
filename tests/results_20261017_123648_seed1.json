@@ -1,0 +1,907 @@
+{
+  "meta": {
+    "seed": 1,
+    "timestamp": "20261017_123648",
+    "gen_tokens": 40,
+    "z_threshold": 4.0,
+    "environment": {
+      "python": "3.14.7",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.14.0+cpu",
+      "transformers": "5.17.0",
+      "sentence_transformers": "6.1.0",
+      "nltk": "3.10.3",
+      "streamlit": "1.64.0",
+      "git_commit": "1917d9f",
+      "git_uncommitted_changes": false
+    },
+    "seconds": 432.0
+  },
+  "control": [
+    {
+      "prompt": "The weather today is",
+      "delta": 0.0,
+      "text": "The weather today is up yet again – there was superstorm Hailstorm, which killed about 10 people, but it also capped at the 900mph mph of dislocation towards Saturation Ridge and flooded houses and roofs. Tid",
+      "z": -0.26413527189768715,
+      "green_fraction": 0.23255813953488372,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 0.0,
+      "text": "In recent economic news, Dow Jones Industrial Average said it would respond to as many as 8,000 separate and therefore uncertain market forecasts caused by continued droughts and droughts in the Midwest, offering carbon-tax protection",
+      "z": 0.3481553119113957,
+      "green_fraction": 0.2727272727272727,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 0.0,
+      "text": "Scientists have discovered that dietary supports such as those developed specifically for fish, dairy and crops can increase the longevity of some of the most critically endangered invertebrates, along with important health benefits. The big fish research initiative,",
+      "z": 0.4402254531628119,
+      "green_fraction": 0.27906976744186046,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 0.0,
+      "text": "The history of Rome shows the confusion of power when the times were not blessed and the place of the Lord limited the Dominion. The impact of this constellations on Rome did not deteriorate after they came in bearing down on",
+      "z": 0.6963106238227914,
+      "green_fraction": 0.29545454545454547,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 0.0,
+      "text": "Cooking a good meal requires energy. Two carbs per plate: Calories: 145 cal, fat: 715 cal, carbs: 364 grams\n\nTo dig deep into the menu of Karolins, I've devised 16",
+      "z": 0.6963106238227914,
+      "green_fraction": 0.29545454545454547,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 0.0,
+      "text": "Modern architecture often features a collection of built-in objects. There's also the knee-high pyramid of a wall project, which contains a couple piles of hardware and an ABS slate, and a giant building of furniture,",
+      "z": -0.26413527189768715,
+      "green_fraction": 0.23255813953488372,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The stock market reacted to",
+      "delta": 0.0,
+      "text": "The stock market reacted to Tesla's $144 per share share plunge that would have nearly halved its market capitalization by about $1.4 billion.\n\nThis tweet and a subsequent one from our Conservative Market Gangor",
+      "z": -1.044465935734187,
+      "green_fraction": 0.18181818181818182,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Education systems around the world",
+      "delta": 0.0,
+      "text": "Education systems around the world use a technology called data sets—\"Treasures\"—to precisely monitor and analyze hundreds of millions of apps, which hold data often and prominently for many noncommercial purposes. These valuable SOCs strategically facilitate sensitive",
+      "z": 1.3926212476455828,
+      "green_fraction": 0.3409090909090909,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Climate change affects",
+      "delta": 0.0,
+      "text": "Climate change affects all aspects of drinking, with many local and regional drinking reservoirs politicised, flooding their bitumen fields, and reducing Bardian water tables around their territory.\n\n\"It is not surprising that local",
+      "z": 1.9599157740244455,
+      "green_fraction": 0.38095238095238093,
+      "detected": false,
+      "tokens": 43
+    },
+    {
+      "prompt": "The novel begins with",
+      "delta": 0.0,
+      "text": "The novel begins with Jake Tooth creating a cogenetic model for his character Aisha due to her defenses being damaged. Once Aisha escapes her overlord, Jake and his group infiltrate another mage's building to find A",
+      "z": -0.9684959969581862,
+      "green_fraction": 0.18604651162790697,
+      "detected": false,
+      "tokens": 44
+    }
+  ],
+  "sweep": [
+    {
+      "prompt": "The weather today is",
+      "delta": 0.5,
+      "text": "The weather today is no different from the weather yesterday. So my question is does the food u have in your fridge likely help to pick you up?!\n\nNorefills on the food base\n\nThe following customer",
+      "z": 2.088931871468374,
+      "green_fraction": 0.38636363636363635,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 0.5,
+      "text": "In recent economic news, the monetary crisis has been strongly perceived as the cause for the disruption of bilateral trade with Venezuela. This is a conscious decision aimed at provoking tensions within the US. For it to cause any disruption of bilateral",
+      "z": 1.044465935734187,
+      "green_fraction": 0.3181818181818182,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 0.5,
+      "text": "Scientists have discovered that this soluble, Zhang-like residue may also form therapeutic peptides that control disease states quickly. Those mechanisms may have critical roles in individual health. Their work shows that biotechnology made possible by bioin",
+      "z": 2.5533076283443092,
+      "green_fraction": 0.4186046511627907,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 0.5,
+      "text": "The history of Rome shows that it has sought to score political advancement at the expense of entire communities, disrupting irrigation projects, and reduced infrastructure cooperation. In fact, Rome spent between 5,541 million and 10,000 million",
+      "z": -0.3481553119113957,
+      "green_fraction": 0.22727272727272727,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 0.5,
+      "text": "Cooking a good meal requires very little grinding at all. Fusion means letting things fall apart. Soupling is not an easy process. Using nobler's and grist coffee has many benefits for this process: Good cup of cards",
+      "z": 2.6680551940539985,
+      "green_fraction": 0.4222222222222222,
+      "detected": false,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 1.0,
+      "text": "The weather today is beautiful but you feel a bit cold, robbing you of citrus. Flattening with bad conditions keeps us above freezing, and the water in the cave are adolescent clusterfuck spikes.\n\n4.",
+      "z": 3.2576683534048083,
+      "green_fraction": 0.46511627906976744,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 1.0,
+      "text": "In recent economic news, world Trump had said: 'This country has some amazing talent. I expect it to be great.'\n\nSo just imagine his backers sort of trying to snuff out elements of Trump's message.",
+      "z": 2.7852424952911656,
+      "green_fraction": 0.4318181818181818,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 1.0,
+      "text": "Scientists have discovered that no one knows how much water specific to plants affects the function of the body and organs in the garden. We have created the first Neisseria gonorrhoeae africanus replicas that",
+      "z": 2.5533076283443092,
+      "green_fraction": 0.4186046511627907,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 1.0,
+      "text": "The history of Rome shows that the city was either short of human enterprise or God. It salted antelope and hauled intensive beasts; drawing from its tradehouses casks; and fortified cities often met back with smog instead",
+      "z": 1.7407765595569784,
+      "green_fraction": 0.36363636363636365,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 1.0,
+      "text": "Cooking a good meal requires biodiversity and least amount of food. The best vognetica can be roasted and eaten raw if possible.\n\nProduce Availability: EuropeGOP candidate Doug Jones is recounting the 1994 Senate",
+      "z": 3.8297084310253524,
+      "green_fraction": 0.5,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "text": "The weather today is cold. The severning car exchanges with the wind, and it pushes up against a thatching rock while it does the snowshoe.\n\nI catch my mates on Vine at 2am",
+      "z": 6.948792289723034,
+      "green_fraction": 0.7142857142857143,
+      "detected": true,
+      "tokens": 43
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "text": "In recent economic news, Hope News Inc.'s holdings in U.S.-listed tech companies came to $5.05 billion in profit at end-March. Earlier, Strange Capevals had $847 million, and",
+      "z": 5.222329678670935,
+      "green_fraction": 0.5909090909090909,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "text": "Scientists have discovered that additionally to a similar protein, there is an enzyme, miY was discovered in 1981 to play a central role in the muon process, which we will describe in quite short detail by quoting the story",
+      "z": 3.609848715935058,
+      "green_fraction": 0.4883720930232558,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "text": "The history of Rome shows just how dependent the power of the individual not to care about the collective is on our workplaces, and asserting workers to care about the individual is precisely what a strategy like Friedrich Engels's Industrial Labour Wanted will",
+      "z": 5.222329678670935,
+      "green_fraction": 0.5909090909090909,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "text": "Cooking a good meal requires active and perceptible fermentation happening within your body. Rules are enforced based on time in the kitchen, temperature, temperature range, etc [3], to conserve water consumption.\n\nAgain it's important",
+      "z": 5.422176684690384,
+      "green_fraction": 0.6,
+      "detected": true,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 3.0,
+      "text": "The weather today is nice and humid; few trees on pass through but the wind breaks all day long. Today's hop-back is beautiful rain would be about 90F but for the weather we're back full sun over",
+      "z": 8.188193428828301,
+      "green_fraction": 0.7906976744186046,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 3.0,
+      "text": "In recent economic news, the labor market has recently improved its quality similar to that in other countries, meaning that workability is improving. The U.S. additional degree program is a great solution for those who have air-",
+      "z": 7.659416862050705,
+      "green_fraction": 0.75,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 3.0,
+      "text": "Scientists have discovered that, compared to untrained hunters by eating meat at slightly different temperatures when they start eating grass, the first-time marine mammal to undergo this species-specific rapid decrease in body weight in its diet must",
+      "z": 8.188193428828301,
+      "green_fraction": 0.7906976744186046,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 3.0,
+      "text": "The history of Rome shows, well before any one of the cities was even fully built, that unfeigned peace restored within the stature of a single Roman Count was necessary and sufficient. Thus it seemed for thousands such deeds of",
+      "z": 7.659416862050705,
+      "green_fraction": 0.75,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 3.0,
+      "text": "Cooking a good meal requires you to make an sitting at your peak readiness to return when purchasing. Both brilliance of the eggs can also stimulate appetite so your heart needs this time to cycle. Allow the eggs to bake hence until they",
+      "z": 8.520563361656318,
+      "green_fraction": 0.8,
+      "detected": true,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 4.0,
+      "text": "The weather today is getting warmer now as everyone who lives by it is now deeply affected. While they can wind up near 30mph they can wind up near 50 mph. The important thing here is that you realize at the",
+      "z": 10.301275604009799,
+      "green_fraction": 0.9302325581395349,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 4.0,
+      "text": "In recent economic news, bitcoin has had a staggering 0.35 percent rally from 17 minutes before its peak around 36 minutes ago, the latest estimates of the much smaller and more uncertain globe message. The catch for Bitcoin's political",
+      "z": 9.052038109696287,
+      "green_fraction": 0.8409090909090909,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 4.0,
+      "text": "Scientists have discovered that ozone depletion affects the body as it rotates through space, and yet other research suggests there is a more profound role here in meteorological and ocean biology. Marshall and Marquart said this result is mostly",
+      "z": 8.8925541538888,
+      "green_fraction": 0.8372093023255814,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 4.0,
+      "text": "The history of Rome shows more Rome's Romans were more concerned with whether or not one of their gods had enough money to do it.\"\n\nAlexandria: Concerning Oxoft, the first Christian Chrysostom spoke",
+      "z": 9.052038109696287,
+      "green_fraction": 0.8409090909090909,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 4.0,
+      "text": "Cooking a good meal requires time during cooking or digestion; the amount of carbohydrates available as output aids energy storage through repeated adjustments, and can limit appetite of hungry and dehydrated ones. Any type or type of food that serves moisture",
+      "z": 8.520563361656318,
+      "green_fraction": 0.8,
+      "detected": true,
+      "tokens": 46
+    }
+  ],
+  "attacks": [
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "The weather today is a little cloudy at the moment. I slept well but got into bright rain today. I'll be tomorrow but hope my pants aren't over hot in the stinky skin. I'll need everything to",
+      "attacked_text": "weather today is a little cloudy at I slept well got into bright rain today. tomorrow but hope my pants over hot in the stinky skin. I'll need to",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 4.898979485566357,
+        "green_fraction": 0.625,
+        "detected": true,
+        "tokens": 33
+      },
+      "similarity": 0.9605377912521362,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "The weather today is a little cloudy at the moment. I slept well but got into bright rain today. I'll be tomorrow but hope my pants aren't over hot in the stinky skin. I'll need everything to",
+      "attacked_text": "The sky is a little cloudy today, and I got some rest. It also started raining brightly, so hurry to prepare for tomorrow's weather but with stinkin pants you need nothing!",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 1.9245008972987525,
+        "green_fraction": 0.3888888888888889,
+        "detected": false,
+        "tokens": 37
+      },
+      "similarity": 0.8752384185791016,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "The weather today is a little cloudy at the moment. I slept well but got into bright rain today. I'll be tomorrow but hope my pants aren't over hot in the stinky skin. I'll need everything to",
+      "attacked_text": "I'm seeing some clouds today, but it was likewise bright sunshine. Tomorrow will be yet worse for me because of the filthier skin and humidity in my pants.",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 1.1055415967851332,
+        "green_fraction": 0.3333333333333333,
+        "detected": false,
+        "tokens": 34
+      },
+      "similarity": 0.7514535784721375,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "The weather today is a little cloudy at the moment. I slept well but got into bright rain today. I'll be tomorrow but hope my pants aren't over hot in the stinky skin. I'll need everything to",
+      "attacked_text": "The sky is a small cloudy today, and I got some rest. It likewise started raining brightly, so hurry to prepare for tomorrow's weather but with stinkin pants you need nothing!",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 1.9245008972987525,
+        "green_fraction": 0.3888888888888889,
+        "detected": false,
+        "tokens": 37
+      },
+      "similarity": 0.8688255548477173,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "In recent economic news, the US economy and central bank probes have highlighted real estate crash reporting, asset bubbles, property even holding-up, and other problems: at present, a total of 30 countries report national currencies FUND",
+      "attacked_text": "In recent economic news, the economy and central bank probes have highlighted real estate crash reporting, asset bubbles, even holding-up, and other problems: at present, a total of 30 countries report national",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 5.269651864139676,
+        "green_fraction": 0.6153846153846154,
+        "detected": true,
+        "tokens": 40
+      },
+      "similarity": 0.8766222596168518,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "In recent economic news, the US economy and central bank probes have highlighted real estate crash reporting, asset bubbles, property even holding-up, and other problems: at present, a total of 30 countries report national currencies FUND",
+      "attacked_text": "Real estate crash reporting, asset bubbles and property holding-up issues have been highlighted in recent economic news. At present, 30 countries report national currency FUND status, while the other 10 are Turkey (a group affected by geopolitical instability).",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 1.191759143062248,
+        "green_fraction": 0.32608695652173914,
+        "detected": false,
+        "tokens": 47
+      },
+      "similarity": 0.8794432878494263,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "In recent economic news, the US economy and central bank probes have highlighted real estate crash reporting, asset bubbles, property even holding-up, and other problems: at present, a total of 30 countries report national currencies FUND",
+      "attacked_text": "The US economy and central banks have been scrutinized in economical news, resulting in reports of real estate crashes, asset bubbles, property declines or troubles, among others. At present, 30 countries report national currencies through the FUND program, while another group does not provide financial support for such cases.",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.454858826147342,
+        "green_fraction": 0.27586206896551724,
+        "detected": false,
+        "tokens": 59
+      },
+      "similarity": 0.8609493970870972,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "In recent economic news, the US economy and central bank probes have highlighted real estate crash reporting, asset bubbles, property even holding-up, and other problems: at present, a total of 30 countries report national currencies FUND",
+      "attacked_text": "Real acres clangor reporting, asset bubbles and property holding-up issues have been highlighted in recent economical word. At present, 30 countries report national currency FUND condition, while the other 10 are Turkey (a radical affected by geopolitical unbalance).",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.9072647087265548,
+        "green_fraction": 0.30612244897959184,
+        "detected": false,
+        "tokens": 50
+      },
+      "similarity": 0.6703295111656189,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Scientists have discovered that, on average, captive bees act only in a fairly strict fashion in the mating season as well, which includes mating and preying on neonicotinoids for years. Based on some observations, the",
+      "attacked_text": "Scientists have discovered that, on average, captive bees act only in a fairly strict fashion in the mating as well, which includes mating and preying on for years. Based on some observations, the",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 5.806832031806502,
+        "green_fraction": 0.6578947368421053,
+        "detected": true,
+        "tokens": 39
+      },
+      "similarity": 0.905882716178894,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Scientists have discovered that, on average, captive bees act only in a fairly strict fashion in the mating season as well, which includes mating and preying on neonicotinoids for years. Based on some observations, the",
+      "attacked_text": "The study of captive bees has revealed that they tend to behave in a somewhat strict manner during the mating season, which involves both breeding and hunting for neonicotinoids.",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -0.502518907629606,
+        "green_fraction": 0.21212121212121213,
+        "detected": false,
+        "tokens": 34
+      },
+      "similarity": 0.9418745040893555,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Scientists have discovered that, on average, captive bees act only in a fairly strict fashion in the mating season as well, which includes mating and preying on neonicotinoids for years. Based on some observations, the",
+      "attacked_text": "The ordinary behavior of captive bees is characterized by strictness, as indicated by their mating season and the depredation on neonicotinoids over lengthy periods.",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -0.7258661863112977,
+        "green_fraction": 0.1935483870967742,
+        "detected": false,
+        "tokens": 32
+      },
+      "similarity": 0.8937649726867676,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Scientists have discovered that, on average, captive bees act only in a fairly strict fashion in the mating season as well, which includes mating and preying on neonicotinoids for years. Based on some observations, the",
+      "attacked_text": "The study of captive bees has revealed that they tend to behave in a somewhat rigorous way during the union season, which involves both breeding and search for neonicotinoids.",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -0.10050378152592121,
+        "green_fraction": 0.24242424242424243,
+        "detected": false,
+        "tokens": 34
+      },
+      "similarity": 0.8902737498283386,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "The history of Rome shows that mankind attempted the most significant leap in the history of the cosmos. The plagues and earthquakes that broke out on 7 October 1822 compelled an incredible change in the culture of the northern western Roman",
+      "attacked_text": "The history of Rome that mankind attempted the most significant leap in the history The plagues earthquakes that out on 7 October 1822 compelled an incredible in the culture the northern western Roman",
+      "original": {
+        "z": 8.007572173962101,
+        "green_fraction": 0.7727272727272727,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 4.950737714883372,
+        "green_fraction": 0.6176470588235294,
+        "detected": true,
+        "tokens": 35
+      },
+      "similarity": 0.9338486194610596,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "The history of Rome shows that mankind attempted the most significant leap in the history of the cosmos. The plagues and earthquakes that broke out on 7 October 1822 compelled an incredible change in the culture of the northern western Roman",
+      "attacked_text": "The history of Rome illustrates that man made an effort to make the largest leap in all human experience within space—for example, when on 7 October 1822 plague and earthquake struck northern western Roman culture causing incredible changes.",
+      "original": {
+        "z": 8.007572173962101,
+        "green_fraction": 0.7727272727272727,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 2.3162640965743444,
+        "green_fraction": 0.40476190476190477,
+        "detected": false,
+        "tokens": 43
+      },
+      "similarity": 0.8381599187850952,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "The history of Rome shows that mankind attempted the most significant leap in the history of the cosmos. The plagues and earthquakes that broke out on 7 October 1822 compelled an incredible change in the culture of the northern western Roman",
+      "attacked_text": "The history of Rome reveals that mankind attempted the largest bounce in human existence. On 7 October 1822, an unprecedented cultural shift occurred due to plagues and earthquakes that devastated northern western Roman culture.",
+      "original": {
+        "z": 8.007572173962101,
+        "green_fraction": 0.7727272727272727,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 2.4351231101124045,
+        "green_fraction": 0.42105263157894735,
+        "detected": false,
+        "tokens": 39
+      },
+      "similarity": 0.8187544941902161,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "The history of Rome shows that mankind attempted the most significant leap in the history of the cosmos. The plagues and earthquakes that broke out on 7 October 1822 compelled an incredible change in the culture of the northern western Roman",
+      "attacked_text": "The story of Rome illustrates that man made an exploit to make the largest spring in all human experience within space — for model, when on 7 October 1822 plague and quake struck northern western Roman culture causing incredible changes.",
+      "original": {
+        "z": 8.007572173962101,
+        "green_fraction": 0.7727272727272727,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.8908708063747479,
+        "green_fraction": 0.30952380952380953,
+        "detected": false,
+        "tokens": 43
+      },
+      "similarity": 0.7158010601997375,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Cooking a good meal requires more time than most reasons to prepare ingredients. One forecast who were breakfast foods that helped fulfill that deadline. These foods are made to last for hundreds of years. Turtle Sliders\n\n250 kcal",
+      "attacked_text": "Cooking requires more time than most reasons to prepare ingredients. One forecast who were breakfast foods helped fulfill that deadline. These foods are made to last hundreds years. Turtle Sliders 250 kcal",
+      "original": {
+        "z": 5.222329678670935,
+        "green_fraction": 0.5909090909090909,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 4.618802153517006,
+        "green_fraction": 0.5833333333333334,
+        "detected": true,
+        "tokens": 37
+      },
+      "similarity": 0.9756121635437012,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Cooking a good meal requires more time than most reasons to prepare ingredients. One forecast who were breakfast foods that helped fulfill that deadline. These foods are made to last for hundreds of years. Turtle Sliders\n\n250 kcal",
+      "attacked_text": "The time required to prepare a delicious meal is greater than most reasons. A few examples of breakfast foods that met the deadline are made with long-lasting ingredients like Turtle Sliders 250 kcal and Rice Krispy Kreme from Japan.",
+      "original": {
+        "z": 5.222329678670935,
+        "green_fraction": 0.5909090909090909,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 1.2909944487358056,
+        "green_fraction": 0.3333333333333333,
+        "detected": false,
+        "tokens": 46
+      },
+      "similarity": 0.7785431742668152,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Cooking a good meal requires more time than most reasons to prepare ingredients. One forecast who were breakfast foods that helped fulfill that deadline. These foods are made to last for hundreds of years. Turtle Sliders\n\n250 kcal",
+      "attacked_text": "The time required to prepare a good meal is greater than most reasons, and there are some breakfast foods that fit the formula's deadline. These meals have been designed with durability in mind and can last for hundreds of years.",
+      "original": {
+        "z": 5.222329678670935,
+        "green_fraction": 0.5909090909090909,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.7924058156930615,
+        "green_fraction": 0.3023255813953488,
+        "detected": false,
+        "tokens": 44
+      },
+      "similarity": 0.7196170091629028,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Cooking a good meal requires more time than most reasons to prepare ingredients. One forecast who were breakfast foods that helped fulfill that deadline. These foods are made to last for hundreds of years. Turtle Sliders\n\n250 kcal",
+      "attacked_text": "The time required to prepare a delicious meal is greater than most reasons. A few examples of breakfast foods that met the deadline are made with long-lasting ingredients like Turtle Sliders 250 kcal and Rice Krispy Kreme from Japan.",
+      "original": {
+        "z": 5.222329678670935,
+        "green_fraction": 0.5909090909090909,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 1.2909944487358056,
+        "green_fraction": 0.3333333333333333,
+        "detected": false,
+        "tokens": 46
+      },
+      "similarity": 0.7785431742668152,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Modern architecture often features architectural styles that have inspired other designers' approaches. My role in this dynamic collision is multiple and flexible because I'm leading alongside many others in embedding our cultural and architectural traditions. My full strength and",
+      "attacked_text": "Modern architecture often features architectural styles that have inspired designers' approaches. My role in this collision is multiple and flexible because I'm leading alongside many others in embedding our cultural and traditions. My full strength and",
+      "original": {
+        "z": 5.0185701660560555,
+        "green_fraction": 0.5813953488372093,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 3.6514837167011076,
+        "green_fraction": 0.5,
+        "detected": false,
+        "tokens": 41
+      },
+      "similarity": 0.9483745694160461,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Modern architecture often features architectural styles that have inspired other designers' approaches. My role in this dynamic collision is multiple and flexible because I'm leading alongside many others in embedding our cultural and architectural traditions. My full strength and",
+      "attacked_text": "The architectural styles that I have featured in many modern architectures are often based on their own design, and therefore my role within this dynamic collision is highly fluid. As one of the most active participants with whom to work together I am part fully formed on embedding our cultural heritage as well as building out other designers' approaches; in short: Architecture has always been an all-encompassing aspect of our interaction between full strength architects like myself who strive for different types of aesthetic expression because it shapes both aesthetic sensibilities in juxtaposition.",
+      "original": {
+        "z": 5.0185701660560555,
+        "green_fraction": 0.5813953488372093,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.9058216273156765,
+        "green_fraction": 0.28846153846153844,
+        "detected": false,
+        "tokens": 105
+      },
+      "similarity": 0.8725259304046631,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Modern architecture often features architectural styles that have inspired other designers' approaches. My role in this dynamic collision is multiple and flexible because I'm leading alongside many others in embedding our cultural and architectural traditions. My full strength and",
+      "attacked_text": "The architectural styles featured in modern architecture have oftentimes served as inspiration for other designers' approaches. As a member of this dynamic alliance, I take pride and honor to share my entire strength and expertise, while also embodying the ethnic and sometimes practical elements that underpin our buildings.",
+      "original": {
+        "z": 5.0185701660560555,
+        "green_fraction": 0.5813953488372093,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -0.15713484026367722,
+        "green_fraction": 0.24074074074074073,
+        "detected": false,
+        "tokens": 55
+      },
+      "similarity": 0.8247028589248657,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Modern architecture often features architectural styles that have inspired other designers' approaches. My role in this dynamic collision is multiple and flexible because I'm leading alongside many others in embedding our cultural and architectural traditions. My full strength and",
+      "attacked_text": "The architectural styles that I have featured in many modern architectures are oftentimes based on their own pattern, and therefore my role within this dynamic collision is highly fluid. As one of the most fighting participants with whom to work together I am part fully formed on embedding our cultural heritage as well as building out other designers' approaches; in short: Architecture has ever been an all-encompassing view of our interaction between full strength architects like myself who strain for different types of esthetic expression because it shapes both aesthetic sensibilities in juxtaposition.",
+      "original": {
+        "z": 5.0185701660560555,
+        "green_fraction": 0.5813953488372093,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.785081015728862,
+        "green_fraction": 0.2830188679245283,
+        "detected": false,
+        "tokens": 107
+      },
+      "similarity": 0.8088588714599609,
+      "eligible": true,
+      "defeated": true
+    }
+  ],
+  "edge": [
+    {
+      "case": "empty string",
+      "text": "",
+      "error": "No tokens to analyze",
+      "tokens": 0
+    },
+    {
+      "case": "single word",
+      "text": "Hello",
+      "error": "No tokens to analyze",
+      "tokens": 1
+    },
+    {
+      "case": "very short",
+      "text": "AI is good.",
+      "z": -1.0,
+      "green_fraction": 0.0,
+      "detected": false,
+      "tokens": 4
+    },
+    {
+      "case": "repeated word",
+      "text": "the the the the the the the the the the",
+      "z": -1.7320508075688772,
+      "green_fraction": 0.0,
+      "detected": false,
+      "tokens": 10
+    },
+    {
+      "case": "numbers only",
+      "text": "12345 67890 11111 22222",
+      "z": -0.8164965809277261,
+      "green_fraction": 0.125,
+      "detected": false,
+      "tokens": 9
+    }
+  ]
+}

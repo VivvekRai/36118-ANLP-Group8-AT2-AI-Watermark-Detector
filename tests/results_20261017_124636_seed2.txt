@@ -1,0 +1,117 @@
+Seed: 2
+  python: 3.14.7
+  platform: Windows-11-10.0.26200-SP0
+  torch: 2.14.0+cpu
+  transformers: 5.17.0
+  sentence_transformers: 6.1.0
+  nltk: 3.10.3
+  streamlit: 1.64.0
+  git_commit: 1917d9f
+  git_uncommitted_changes: False
+Loading GPT-2...
+Loading paraphraser (humarin/chatgpt_paraphraser_on_T5_base)...
+Loading similarity model (all-MiniLM-L6-v2)...
+  Seeded synonym step inside compound_attack: yes
+
+======================================================================
+TEST 1: FALSE POSITIVE RATE (delta = 0, no watermark)
+======================================================================
+  z=  1.14  green=32.6%  tokens=44  [ok]  The weather today is
+  z= -2.15  green=11.1%  tokens=46  [ok]  In recent economic news,
+  z= -0.97  green=18.6%  tokens=44  [ok]  Scientists have discovered that
+  z= -0.70  green=20.5%  tokens=45  [ok]  The history of Rome shows
+  z=  0.95  green=31.1%  tokens=46  [ok]  Cooking a good meal requires
+  z=  1.50  green=34.9%  tokens=44  [ok]  Modern architecture often features
+  z=  0.35  green=27.3%  tokens=45  [ok]  The stock market reacted to
+  z=  0.35  green=27.3%  tokens=45  [ok]  Education systems around the world
+  z=  0.18  green=26.2%  tokens=43  [ok]  Climate change affects
+  z= -0.26  green=23.3%  tokens=44  [ok]  The novel begins with
+
+  Mean z-score: 0.04
+  False positives: 0/10
+
+======================================================================
+TEST 2: DELTA SWEEP (watermark strength vs detectability)
+======================================================================
+  Delta   Mean Z    Detected    Min Z     Max Z     
+  0.5     2.45      0/5         0.44      3.70      
+  1.0     3.38      2/5         1.96      4.53      
+  2.0     5.59      4/5         2.20      7.49      
+  3.0     7.96      5/5         5.68      9.40      
+  4.0     8.98      5/5         7.48      9.95      
+
+======================================================================
+TEST 3: ATTACK COMPARISON
+======================================================================
+  deletion  = drop each word with probability 0.15
+  paraphrase = T5 paraphraser only
+  compound = the app's compound_attack (its own paraphrase, then synonyms)
+  compound_same_paraphrase = synonyms applied to the SAME paraphrase used above
+    (the controlled comparison: it isolates what the synonym step adds)
+
+  Prompt: The weather today is  (original z=  6.43, tokens=44)
+    deletion                   after z=  5.98  drop=  0.45  similarity=97.1%  tokens=38  [survived]
+    paraphrase                 after z=  0.57  drop=  5.86  similarity=77.4%  tokens=84  [DEFEATED]
+    compound                   after z=  1.63  drop=  4.79  similarity=73.5%  tokens=33  [DEFEATED]
+    compound_same_paraphrase   after z=  0.76  drop=  5.67  similarity=77.3%  tokens=85  [DEFEATED]
+
+  Prompt: In recent economic news,  (original z=  3.83, tokens=45)
+    deletion                   after z=  4.10  drop= -0.27  similarity=100.0%  tokens=43  [N/A (original not detected)]
+    paraphrase                 after z= -0.15  drop=  3.98  similarity=80.1%  tokens=59  [N/A (original not detected)]
+    compound                   after z= -0.43  drop=  4.26  similarity=77.0%  tokens=46  [N/A (original not detected)]
+    compound_same_paraphrase   after z= -0.76  drop=  4.59  similarity=79.6%  tokens=59  [N/A (original not detected)]
+
+  Prompt: Scientists have discovered that  (original z=  6.43, tokens=44)
+    deletion                   after z=  3.76  drop=  2.66  similarity=96.8%  tokens=35  [DEFEATED]
+    paraphrase                 after z=  0.93  drop=  5.50  similarity=59.6%  tokens=15  [DEFEATED]
+    compound                   after z=  0.52  drop=  5.91  similarity=66.5%  tokens=21  [DEFEATED]
+    compound_same_paraphrase   after z=  0.31  drop=  6.12  similarity=49.4%  tokens=15  [DEFEATED]
+
+  Prompt: The history of Rome shows  (original z=  5.92, tokens=45)
+    deletion                   after z=  5.13  drop=  0.79  similarity=85.1%  tokens=34  [survived]
+    paraphrase                 after z= -1.13  drop=  7.05  similarity=84.0%  tokens=22  [DEFEATED]
+    compound                   after z=  0.89  drop=  5.03  similarity=84.6%  tokens=43  [DEFEATED]
+    compound_same_paraphrase   after z=  0.38  drop=  5.54  similarity=77.5%  tokens=22  [DEFEATED]
+
+  Prompt: Cooking a good meal requires  (original z=  5.77, tokens=46)
+    deletion                   after z=  3.12  drop=  2.65  similarity=96.0%  tokens=34  [DEFEATED]
+    paraphrase                 after z=  0.73  drop=  5.04  similarity=61.6%  tokens=41  [DEFEATED]
+    compound                   after z= -0.93  drop=  6.69  similarity=58.1%  tokens=15  [DEFEATED]
+    compound_same_paraphrase   after z=  1.10  drop=  4.67  similarity=62.7%  tokens=41  [DEFEATED]
+
+  Prompt: Modern architecture often features  (original z=  5.72, tokens=44)
+    deletion                   after z=  5.60  drop=  0.12  similarity=91.8%  tokens=38  [survived]
+    paraphrase                 after z=  4.33  drop=  1.39  similarity=90.8%  tokens=49  [survived]
+    compound                   after z=  2.67  drop=  3.06  similarity=93.9%  tokens=49  [DEFEATED]
+    compound_same_paraphrase   after z=  4.00  drop=  1.72  similarity=92.3%  tokens=49  [DEFEATED]
+
+  SUMMARY (defeats are counted only over originals that were detected)
+  Originals not detected before any attack: 1/6
+  Attack                    Defeated    Mean z after  Mean drop   Mean similarity
+  deletion                  2/5         4.61          1.07        94.5%
+  paraphrase                4/5         0.88          4.80        75.6%
+  compound                  5/5         0.73          4.96        75.6%
+  compound_same_paraphrase  5/5         0.96          4.72        73.1%
+
+======================================================================
+TEST 4: EDGE CASES
+======================================================================
+
+  Case: 'empty string' -> ''
+    Handled gracefully: No tokens to analyze
+
+  Case: 'single word' -> 'Hello'
+    Handled gracefully: No tokens to analyze
+
+  Case: 'very short' -> 'AI is good.'
+    z=-1.00  green=0.0%  watermarked=False
+
+  Case: 'repeated word' -> 'the the the the the the the the the the'
+    z=-1.73  green=0.0%  watermarked=False
+
+  Case: 'numbers only' -> '12345 67890 11111 22222'
+    z=-0.82  green=12.5%  watermarked=False
+
+======================================================================
+DONE in 469.9 seconds
+======================================================================

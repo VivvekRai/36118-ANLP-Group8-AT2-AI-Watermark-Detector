@@ -1,0 +1,907 @@
+{
+  "meta": {
+    "seed": 3,
+    "timestamp": "20261017_130249",
+    "gen_tokens": 40,
+    "z_threshold": 4.0,
+    "environment": {
+      "python": "3.14.7",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.14.0+cpu",
+      "transformers": "5.17.0",
+      "sentence_transformers": "6.1.0",
+      "nltk": "3.10.3",
+      "streamlit": "1.64.0",
+      "git_commit": "1917d9f",
+      "git_uncommitted_changes": false
+    },
+    "seconds": 551.4
+  },
+  "control": [
+    {
+      "prompt": "The weather today is",
+      "delta": 0.0,
+      "text": "The weather today is bright and cold, with in the driest part of the South going to the south. But tropical storms are not advancing from whence they came. They're not just sporadic, they're harmonious and",
+      "z": 1.1445861782233109,
+      "green_fraction": 0.32558139534883723,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 0.0,
+      "text": "In recent economic news, Lau has criticised rising oil prices; manufacturing back-end services losses; engineering costs, to Ferrari, drones, luxury goods, and online resellers with large populations.\n\nIn February 2016, it",
+      "z": -0.6963106238227914,
+      "green_fraction": 0.20454545454545456,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 0.0,
+      "text": "Scientists have discovered that carbonations add hundreds of tonnes to CO2 per year, or about $5,000 in today's supply and demand secreted in zero carbon insulator applications. This seems to mean too much to",
+      "z": 0.4402254531628119,
+      "green_fraction": 0.27906976744186046,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 0.0,
+      "text": "The history of Rome shows that we must sometimes better understand the applications of the stupa in order to persuade oneself that the problem of good news and bad news is not really the realm of the history and so do not realize",
+      "z": 1.3926212476455828,
+      "green_fraction": 0.3409090909090909,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 0.0,
+      "text": "Cooking a good meal requires regular labor, especially when using other parts of the body. Every 10 minutes, per pound, take the elastic plates off and cut them off. Cut one end in half and cover the inner end with",
+      "z": 0.9467292624062575,
+      "green_fraction": 0.3111111111111111,
+      "detected": false,
+      "tokens": 46
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 0.0,
+      "text": "Modern architecture often features casual vibes – like soaring champagne and gin melodies. Magic skateboards and bralerie groups scoot past fashion sets and nightclubs light up with fireworks. Ronnie has the wild ride of daily life",
+      "z": 0.7924058156930615,
+      "green_fraction": 0.3023255813953488,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The stock market reacted to",
+      "delta": 0.0,
+      "text": "The stock market reacted to companies and big banks was a full-blown bubble, with the most popular stocks at the moment setting assets lower than they were three years ago. Overall up 36 percent, while down 80 percent, there",
+      "z": -0.6963106238227914,
+      "green_fraction": 0.20454545454545456,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Education systems around the world",
+      "delta": 0.0,
+      "text": "Education systems around the world get to have kids, the Green Card system helps to help them live a better future,\" Mr Straus said.Health Impact News leads the garden with biologics for both production of A-",
+      "z": -0.6163156344279367,
+      "green_fraction": 0.20930232558139536,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "Climate change affects",
+      "delta": 0.0,
+      "text": "Climate change affects the receiver of wind power investing in nuclear polluters in renewable environments. Recently, the National Renewable Energy Laboratory and Alternate Climate Change Refugium began collaborating on approach to make use of bioreactor",
+      "z": 1.247219128924647,
+      "green_fraction": 0.3333333333333333,
+      "detected": false,
+      "tokens": 43
+    },
+    {
+      "prompt": "The novel begins with",
+      "delta": 0.0,
+      "text": "The novel begins with a woman saying:\n\n\"I made my living as a photographer, but racism is there all around me; it's everywhere.\"\n\nThis is hotter than you think!!\n\nShe is",
+      "z": 0.4402254531628119,
+      "green_fraction": 0.27906976744186046,
+      "detected": false,
+      "tokens": 44
+    }
+  ],
+  "sweep": [
+    {
+      "prompt": "The weather today is",
+      "delta": 0.5,
+      "text": "The weather today is still hostile and our rolling hillsides and trails may stay dry through this winter. The sunrise will come over FairOne City from 930 to 10 a.m. (positioned as well as roads",
+      "z": 0.7924058156930615,
+      "green_fraction": 0.3023255813953488,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 0.5,
+      "text": "In recent economic news, the market has been hit hard by baby boomers' high unemployment (34% versus 19% since 1999 and 21% for younger workers in 1986),\" Jones wrote in a recent blog post, occurring Sept",
+      "z": 1.7407765595569784,
+      "green_fraction": 0.36363636363636365,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 0.5,
+      "text": "Scientists have discovered that calcium deposition affects the continuous-wave metabolism in whales - a mechanism driven by methane in the seabed, which some scientists say is part of the cause of marine acidification.\n\nResearchers from",
+      "z": 0.4402254531628119,
+      "green_fraction": 0.27906976744186046,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 0.5,
+      "text": "The history of Rome shows many changes--a slowing of climate by about 45 degrees, yet a Tuscan settlement increasing the expectation of growing crops to 500 hectares per year.\n\nAl chico y antropologia,",
+      "z": 3.481553119113957,
+      "green_fraction": 0.4772727272727273,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 0.5,
+      "text": "Cooking a good meal requires a lot of thought. Our favorite place for example is Caesars Black Market, worked into this web page to provide easy, vegetarian recipes using our favorite Superfood Sauce and Okra.\n\n",
+      "z": 1.7407765595569784,
+      "green_fraction": 0.36363636363636365,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 1.0,
+      "text": "The weather today is very dark. It's becoming dark. This is .. [The Nineteen-Eighties American] called me on the phone. I said, `I just got home and I'm flying west.'",
+      "z": 3.609848715935058,
+      "green_fraction": 0.4883720930232558,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 1.0,
+      "text": "In recent economic news, while Twitter has almost doubled in size since Aug. 3, a V.T.I.L. world and other biased social outlets have paved the way for more personal information being shared anonymously on social",
+      "z": 2.4370871833797696,
+      "green_fraction": 0.4090909090909091,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 1.0,
+      "text": "Scientists have discovered that for small organisms, encountering bees could allow them to prime birds (left). Photo: Jenifer Kitchen/The Linux Photonics Project More\n\nSuch tiny organisms have long been classified as rare or rare",
+      "z": 1.84894690328381,
+      "green_fraction": 0.37209302325581395,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 1.0,
+      "text": "The history of Rome shows how it kept its status as the source of Christianity from the first; it also reveals how it used politics and other means to advance its own interests, while still pursuing the sought-after object of power",
+      "z": 2.7852424952911656,
+      "green_fraction": 0.4318181818181818,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 1.0,
+      "text": "Cooking a good meal requires careful preparation. It is easiest, but not necessary, to prepare baked goods using butter, baking soda, and kitchen stuffers aside from familiar flavored soaps, It is best to always use a non",
+      "z": 2.6680551940539985,
+      "green_fraction": 0.4222222222222222,
+      "detected": false,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "text": "The weather today is cold and cloudy so it doesn't really allow you to see the moon, but there is an early morning shower! Nothing unusual or unusual, the moon is mentioned at least once in the [1944",
+      "z": 5.3707505285863055,
+      "green_fraction": 0.6046511627906976,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "text": "In recent economic news, the card sells on Amazon and the U.K.\n\n\nCashier's Tray by \"Michael\" Brooks sells about 11 maces in the U.S. each store with a range from no",
+      "z": 6.2667956144051224,
+      "green_fraction": 0.6590909090909091,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "text": "Scientists have discovered that an enzyme family called Klebsiella typhus lives digitally in the saliva of avian mammoths and that this enzyme has the same DNA sequence, according to the Estito Editorial. \"Mamm",
+      "z": 3.2576683534048083,
+      "green_fraction": 0.46511627906976744,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "text": "The history of Rome shows it's important for monotheists to apply a more esoteric list of cults than one that corresponds to oneself in \"certain representative thrones\". So it's helped to explain the comma before designation and",
+      "z": 6.614950926316518,
+      "green_fraction": 0.6818181818181818,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "text": "Cooking a good meal requires lots and plenty of willpower from your body-mind: all the stress and worry; it's the same thing that makes good people or great people hate dieting. Food always carries some sort of penalty",
+      "z": 6.11070705734948,
+      "green_fraction": 0.6444444444444445,
+      "detected": true,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 3.0,
+      "text": "The weather today is getting the worst, which can lead to flooding and more agitated crops, and more agricultural output could be off the road altogether. Hybridization is definitely one story, and there is also a possibility it could",
+      "z": 7.131652341237553,
+      "green_fraction": 0.7209302325581395,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 3.0,
+      "text": "In recent economic news, the personal income rights (PPI), smart contract (RTP) market and massive free enterprise (FMECS) possibilities have also widened (though remain limited). It has included settlements as an option",
+      "z": 9.052038109696287,
+      "green_fraction": 0.8409090909090909,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 3.0,
+      "text": "Scientists have discovered that O-steps, the strongest contacts the body has yet been at, can reveal which building faces at which events have occurred.\n\nDuring a change in Earth's rotation, temperature rises can occur very",
+      "z": 8.188193428828301,
+      "green_fraction": 0.7906976744186046,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 3.0,
+      "text": "The history of Rome shows, through time, that the growing influence of the Loewen Order continued modestly over centuries with its slight rise, usually from under feudal lords till either capitulated to using public piety which however",
+      "z": 6.779471978707304,
+      "green_fraction": 0.6976744186046512,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 3.0,
+      "text": "Cooking a good meal requires hydration and efficient fermentation but for those of you in the agri-ho vegan world who like chicken or beef, don't waste food all over without having at least three servings. A hearty microw",
+      "z": 7.487767802667673,
+      "green_fraction": 0.7333333333333333,
+      "detected": true,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 4.0,
+      "text": "The weather today is definitely going to pick up from above, and rather than focusing solely on one of the Park, many units of the Brave Brass occasionally stream the river through a rift rather than a flat. Our crewathered",
+      "z": 10.653455966540049,
+      "green_fraction": 0.9534883720930233,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 4.0,
+      "text": "In recent economic news, government officials have predicted via polling recently that federal borrowers have slashed their nominal monthly trailing retirement age from 39.6 to 37, cutting the US median cash advance from 39.3 to 37, clinging to",
+      "z": 8.703882797784892,
+      "green_fraction": 0.8181818181818182,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 4.0,
+      "text": "Scientists have discovered that high omega 3 oils — including central nervous system supplements such as Condis, Gold's Gymnob, and Mineral Asilic Acid — can also elicit reduced cardiovascular damage. While these effects appear here",
+      "z": 7.483857967739688,
+      "green_fraction": 0.7560975609756098,
+      "detected": true,
+      "tokens": 42
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 4.0,
+      "text": "The history of Rome shows, paradoxes from Aeneid to Renaissance, and controversy between traditions arising before Hume and Hindustani helps explain everything in the troubling diary entries, though expressions of particular ire do appear in the correspondence",
+      "z": 10.44465935734187,
+      "green_fraction": 0.9318181818181818,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 4.0,
+      "text": "Cooking a good meal requires time to digest – especially adding nutrients and carbohydrates to breast milk. If there is a need for specific nutrients, consider consuming nonprotein Leurine, which can act like an electrolytes carrier in your",
+      "z": 8.17629817532677,
+      "green_fraction": 0.7777777777777778,
+      "detected": true,
+      "tokens": 46
+    }
+  ],
+  "attacks": [
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "The weather today is Simian. The temperature is warm but there is nothing sharp scheduled for 20, almost 9,000 feet.\n\nWeather is GOLD\n\nFish\n\nIt can get really magical during that time",
+      "attacked_text": "The weather today is Simian. is warm but there is nothing sharp scheduled for 20, almost 9,000 feet. Weather GOLD Fish It get really magical during that time",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 4.723677731718297,
+        "green_fraction": 0.6060606060606061,
+        "detected": true,
+        "tokens": 34
+      },
+      "similarity": 0.9800853729248047,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "The weather today is Simian. The temperature is warm but there is nothing sharp scheduled for 20, almost 9,000 feet.\n\nWeather is GOLD\n\nFish\n\nIt can get really magical during that time",
+      "attacked_text": "The weather is presently Simian, with warm temperatures and no apparent sharp winds for the next 20 to 40 minutes at almost 9,500 feet. During this time of year, it can be truly magical as precipitation descends from GOLD Fish, a stunning setting that lasts for millennium or more.",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -1.3000224919331833,
+        "green_fraction": 0.17543859649122806,
+        "detected": false,
+        "tokens": 58
+      },
+      "similarity": 0.7870864868164062,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "The weather today is Simian. The temperature is warm but there is nothing sharp scheduled for 20, almost 9,000 feet.\n\nWeather is GOLD\n\nFish\n\nIt can get really magical during that time",
+      "attacked_text": "The weather today is reminiscent of Simian, with warm temperatures and no sharp edges for 20, nearly 9,000 feet. Weather conditions are GOLD Fish, which can be very magical at this clip of year.",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 1.3525044520011484,
+        "green_fraction": 0.34146341463414637,
+        "detected": false,
+        "tokens": 42
+      },
+      "similarity": 0.8620373010635376,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "The weather today is Simian. The temperature is warm but there is nothing sharp scheduled for 20, almost 9,000 feet.\n\nWeather is GOLD\n\nFish\n\nIt can get really magical during that time",
+      "attacked_text": "The weather is presently Simian, with warm temperatures and no apparent sharp winds for the adjacent 20 to 40 minutes at almost 9,500 feet. During this time of year, it can be truly magical as precipitation descends from GOLD Fish, a stunning background that lasts for millennium or more.",
+      "original": {
+        "z": 6.075111253646805,
+        "green_fraction": 0.6511627906976745,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -1.3000224919331833,
+        "green_fraction": 0.17543859649122806,
+        "detected": false,
+        "tokens": 58
+      },
+      "similarity": 0.7970049381256104,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "In recent economic news, Banks are racing to learn what will be the best option for struggling borrowers and delivering that quality. Banks are being seen as liberating banks for services that could help underwrite their future endeavors, said Dave Git",
+      "attacked_text": "In recent economic news, Banks to learn what will be the best option for struggling borrowers and delivering that quality. Banks are being seen as liberating banks for services that could underwrite their endeavors, said Dave Git",
+      "original": {
+        "z": 3.1333978072025612,
+        "green_fraction": 0.45454545454545453,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 2.9211869733608857,
+        "green_fraction": 0.45,
+        "detected": false,
+        "tokens": 41
+      },
+      "similarity": 0.9886144995689392,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "In recent economic news, Banks are racing to learn what will be the best option for struggling borrowers and delivering that quality. Banks are being seen as liberating banks for services that could help underwrite their future endeavors, said Dave Git",
+      "attacked_text": "Dave Gitten noted that in light of recent economic news, banks are aggressively seeking to offer better solutions for struggling borrowers.",
+      "original": {
+        "z": 3.1333978072025612,
+        "green_fraction": 0.45454545454545453,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.1203858530857692,
+        "green_fraction": 0.2608695652173913,
+        "detected": false,
+        "tokens": 24
+      },
+      "similarity": 0.7427829504013062,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "In recent economic news, Banks are racing to learn what will be the best option for struggling borrowers and delivering that quality. Banks are being seen as liberating banks for services that could help underwrite their future endeavors, said Dave Git",
+      "attacked_text": "According to Dave Gitten, banks are being urged by recent economic news to provide assist in finding the best solutions for struggling borrowers.",
+      "original": {
+        "z": 3.1333978072025612,
+        "green_fraction": 0.45454545454545453,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.3464101615137754,
+        "green_fraction": 0.28,
+        "detected": false,
+        "tokens": 26
+      },
+      "similarity": 0.728610634803772,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "In recent economic news, Banks are racing to learn what will be the best option for struggling borrowers and delivering that quality. Banks are being seen as liberating banks for services that could help underwrite their future endeavors, said Dave Git",
+      "attacked_text": "Dave Gitten noted that in light of recent economic tidings, banks are sharply seeking to offer better solutions for struggling borrowers.",
+      "original": {
+        "z": 3.1333978072025612,
+        "green_fraction": 0.45454545454545453,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.0,
+        "green_fraction": 0.25,
+        "detected": false,
+        "tokens": 25
+      },
+      "similarity": 0.7269731163978577,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Scientists have discovered that effective power from renewable energy uses up far less data than government reporting. The current regulations for greenhouse gas emission emission—eight places are over because of the chaos triggered by an early shield during a solar storm",
+      "attacked_text": "Scientists have that power from renewable energy uses up far data government reporting. The current for greenhouse gas emission emission—eight places are over because of the chaos triggered by an early shield during a solar",
+      "original": {
+        "z": 7.131652341237553,
+        "green_fraction": 0.7209302325581395,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 5.979695373240744,
+        "green_fraction": 0.6756756756756757,
+        "detected": true,
+        "tokens": 38
+      },
+      "similarity": 0.9016596078872681,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Scientists have discovered that effective power from renewable energy uses up far less data than government reporting. The current regulations for greenhouse gas emission emission—eight places are over because of the chaos triggered by an early shield during a solar storm",
+      "attacked_text": "The utilization of renewable energy by scientists is much lower than government reporting, resulting in the termination of current greenhouse gas emission regulations.",
+      "original": {
+        "z": 7.131652341237553,
+        "green_fraction": 0.7209302325581395,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 3.771236166328254,
+        "green_fraction": 0.5833333333333334,
+        "detected": false,
+        "tokens": 25
+      },
+      "similarity": 0.7610489130020142,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Scientists have discovered that effective power from renewable energy uses up far less data than government reporting. The current regulations for greenhouse gas emission emission—eight places are over because of the chaos triggered by an early shield during a solar storm",
+      "attacked_text": "Researchers have found that renewable energy's efficacy in data utilization surpasses regime reporting. The current greenhouse gas emission standards, which were set eight times earlier due to the commotion caused by an early shield during a solar storm, are no longer on track.",
+      "original": {
+        "z": 7.131652341237553,
+        "green_fraction": 0.7209302325581395,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 1.5670935878004129,
+        "green_fraction": 0.3469387755102041,
+        "detected": false,
+        "tokens": 50
+      },
+      "similarity": 0.8236271739006042,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Scientists have discovered that effective power from renewable energy uses up far less data than government reporting. The current regulations for greenhouse gas emission emission—eight places are over because of the chaos triggered by an early shield during a solar storm",
+      "attacked_text": "The utilization of renewable energy by scientists is much lower than government reporting, resulting in the termination of current greenhouse gas emission regulations.",
+      "original": {
+        "z": 7.131652341237553,
+        "green_fraction": 0.7209302325581395,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 3.771236166328254,
+        "green_fraction": 0.5833333333333334,
+        "detected": false,
+        "tokens": 25
+      },
+      "similarity": 0.7610489130020142,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "The history of Rome shows how it's important for those who are vying to profit from multiple chapters in the history of the Church of Jesus Christ of Latter-day Saints.\n\nHistorically speaking, the founding fathers set out",
+      "attacked_text": "The history Rome shows it's important for those who are profit from multiple chapters in the history of the Church of Jesus Christ Latter-day Saints. Historically speaking, the founding fathers set out",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 4.233901974057256,
+        "green_fraction": 0.5555555555555556,
+        "detected": true,
+        "tokens": 37
+      },
+      "similarity": 0.9665588140487671,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "The history of Rome shows how it's important for those who are vying to profit from multiple chapters in the history of the Church of Jesus Christ of Latter-day Saints.\n\nHistorically speaking, the founding fathers set out",
+      "attacked_text": "The history of Rome is significant for those seeking to benefit from various chapters in the Church's historical development. Historically, the founding fathers established the objectives and beliefs that informed their choices during this period.",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.936585811581694,
+        "green_fraction": 0.3157894736842105,
+        "detected": false,
+        "tokens": 39
+      },
+      "similarity": 0.8017375469207764,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "The history of Rome shows how it's important for those who are vying to profit from multiple chapters in the history of the Church of Jesus Christ of Latter-day Saints.\n\nHistorically speaking, the founding fathers set out",
+      "attacked_text": "The history of Rome is relevant to those seeking the benefits of several chapters in the yesteryear that have shaped the Church of Jesus Christ-of-Latterday Saints. In fact, when it was established by our founding fathers in 1848 – 49, they set out various principles in which we should live and thrive as members.",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 1.5634719199411433,
+        "green_fraction": 0.3333333333333333,
+        "detected": false,
+        "tokens": 67
+      },
+      "similarity": 0.8537135720252991,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "The history of Rome shows how it's important for those who are vying to profit from multiple chapters in the history of the Church of Jesus Christ of Latter-day Saints.\n\nHistorically speaking, the founding fathers set out",
+      "attacked_text": "The account of Rome is substantial for those seeking to benefit from various chapters in the Church's historical development. Historically, the founding fathers established the objectives and beliefs that informed their choices during this period.",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.936585811581694,
+        "green_fraction": 0.3157894736842105,
+        "detected": false,
+        "tokens": 39
+      },
+      "similarity": 0.7658994197845459,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Cooking a good meal requires a (very good) spectrum of food 8 or 10 minutes before you shouldn't eat emergency food since your stomach should begin stopping. If it's inner digestive unit is not forming correctly and your food store",
+      "attacked_text": "a good meal requires a (very good) spectrum of food 8 10 minutes before you shouldn't eat emergency food since your should begin stopping. If it's inner digestive unit is forming correctly and your food store",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": 4.016632088371218,
+        "green_fraction": 0.525,
+        "detected": true,
+        "tokens": 41
+      },
+      "similarity": 0.9442232847213745,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Cooking a good meal requires a (very good) spectrum of food 8 or 10 minutes before you shouldn't eat emergency food since your stomach should begin stopping. If it's inner digestive unit is not forming correctly and your food store",
+      "attacked_text": "It is recommended to consume a varied diet 8-10 minutes before cooking an adequate meal as your stomach should stop, which can be problematic when the inner digestive unit fails to form properly and you want to store food later.",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": 2.5533076283443092,
+        "green_fraction": 0.4186046511627907,
+        "detected": false,
+        "tokens": 44
+      },
+      "similarity": 0.7680529356002808,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Cooking a good meal requires a (very good) spectrum of food 8 or 10 minutes before you shouldn't eat emergency food since your stomach should begin stopping. If it's inner digestive unit is not forming correctly and your food store",
+      "attacked_text": "When you're cooking a healthy meal, it is important to have lot of food around 8-10 minutes before eating emergency foods because your belly will begin to cease. If the inner digestive unit doesn't develop right and your body stores more calories than usual, resting 7 hours prior or following meals for longer; this can be avoided by exercising with exercise as recommended and in most cases, fasts are consumed within the set timeframe recommended at 6-9 pm ET when hunger pang-thinning occurs.",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": 1.2185435916898848,
+        "green_fraction": 0.30303030303030304,
+        "detected": false,
+        "tokens": 100
+      },
+      "similarity": 0.8120385408401489,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Cooking a good meal requires a (very good) spectrum of food 8 or 10 minutes before you shouldn't eat emergency food since your stomach should begin stopping. If it's inner digestive unit is not forming correctly and your food store",
+      "attacked_text": "It is recommended to consume a varied diet 8-10 minutes before cooking an adequate meal as your abdomen should stop, which can be baffling when the inner digestive unit fails to form properly and you want to store nutrient later.",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": 2.088931871468374,
+        "green_fraction": 0.38636363636363635,
+        "detected": false,
+        "tokens": 45
+      },
+      "similarity": 0.7482162714004517,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Modern architecture often features use of trailer-style \" movable buttons that control height and weight,\" according to the study. Many handheld room scale calculators are associated with curving, giving the adjustment more flexibility, the agency",
+      "attacked_text": "Modern architecture often features use of trailer-style \" buttons that control and weight,\" according to the study. handheld room scale calculators are associated with curving, giving the adjustment more flexibility, the agency",
+      "original": {
+        "z": 3.609848715935058,
+        "green_fraction": 0.4883720930232558,
+        "detected": false,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 3.4206512100555795,
+        "green_fraction": 0.48717948717948717,
+        "detected": false,
+        "tokens": 40
+      },
+      "similarity": 0.974341869354248,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Modern architecture often features use of trailer-style \" movable buttons that control height and weight,\" according to the study. Many handheld room scale calculators are associated with curving, giving the adjustment more flexibility, the agency",
+      "attacked_text": "The study suggests that modern architecture frequently employs mobile buttons to control height and weight, similar to those found in trailer-style buildings.",
+      "original": {
+        "z": 3.609848715935058,
+        "green_fraction": 0.4883720930232558,
+        "detected": false,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -0.11547005383792514,
+        "green_fraction": 0.24,
+        "detected": false,
+        "tokens": 26
+      },
+      "similarity": 0.740228533744812,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Modern architecture often features use of trailer-style \" movable buttons that control height and weight,\" according to the study. Many handheld room scale calculators are associated with curving, giving the adjustment more flexibility, the agency",
+      "attacked_text": "The study found that modern architecture frequently employs movable buttons to check height and weight, similar to the characteristics of trailer-style buildings.",
+      "original": {
+        "z": 3.609848715935058,
+        "green_fraction": 0.4883720930232558,
+        "detected": false,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.22645540682891913,
+        "green_fraction": 0.2692307692307692,
+        "detected": false,
+        "tokens": 27
+      },
+      "similarity": 0.7322258949279785,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Modern architecture often features use of trailer-style \" movable buttons that control height and weight,\" according to the study. Many handheld room scale calculators are associated with curving, giving the adjustment more flexibility, the agency",
+      "attacked_text": "The report suggests that modern architecture frequently employs mobile buttons to curb height and weight, similar to those found in trailer-style buildings.",
+      "original": {
+        "z": 3.609848715935058,
+        "green_fraction": 0.4883720930232558,
+        "detected": false,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": -0.11547005383792514,
+        "green_fraction": 0.24,
+        "detected": false,
+        "tokens": 26
+      },
+      "similarity": 0.7018618583679199,
+      "eligible": false,
+      "defeated": false
+    }
+  ],
+  "edge": [
+    {
+      "case": "empty string",
+      "text": "",
+      "error": "No tokens to analyze",
+      "tokens": 0
+    },
+    {
+      "case": "single word",
+      "text": "Hello",
+      "error": "No tokens to analyze",
+      "tokens": 1
+    },
+    {
+      "case": "very short",
+      "text": "AI is good.",
+      "z": -1.0,
+      "green_fraction": 0.0,
+      "detected": false,
+      "tokens": 4
+    },
+    {
+      "case": "repeated word",
+      "text": "the the the the the the the the the the",
+      "z": -1.7320508075688772,
+      "green_fraction": 0.0,
+      "detected": false,
+      "tokens": 10
+    },
+    {
+      "case": "numbers only",
+      "text": "12345 67890 11111 22222",
+      "z": -0.8164965809277261,
+      "green_fraction": 0.125,
+      "detected": false,
+      "tokens": 9
+    }
+  ]
+}

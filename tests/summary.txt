@@ -1,0 +1,38 @@
+Pooling 3 runs:
+  tests\results_20261017_123648_seed1.json  seed=1  commit=1917d9f  uncommitted=False  432.0s
+  tests\results_20261017_124636_seed2.json  seed=2  commit=1917d9f  uncommitted=False  469.9s
+  tests\results_20261017_130249_seed3.json  seed=3  commit=1917d9f  uncommitted=False  551.4s
+
+TABLE 6: detection by delta (pooled)
+  delta       n     mean z    min z     max z     detected
+  0 (control) 30    0.26      -2.15     1.96      0 / 30
+  0.5         15    1.90      -0.35     3.70      0 / 15
+  1.0         15    2.96      1.74      4.53      2 / 15
+  2.0         15    5.47      2.20      7.49      12 / 15
+  3.0         15    7.91      5.68      9.40      15 / 15
+  4.0         15    9.08      7.48      10.65     15 / 15
+
+TABLE 5: attack comparison at delta = 2.0
+  Originals: 18  detected: 15  mean z 5.69  range 3.13 to 8.01
+  Mean tokens per original: 44.6
+  attack                      defeated    mean z after  max z after  mean drop  mean sim  sim range     mean tokens
+  deletion                    3 / 15      4.57          5.98         1.12       0.946     0.85-1.00     37.7
+  paraphrase                  14 / 15     1.02          4.33         4.67       0.796     0.60-0.94     44.3
+  compound                    15 / 15     0.81          2.67         4.88       0.790     0.58-0.94     43.4
+  compound_same_paraphrase    15 / 15     0.94          4.00         4.75       0.757     0.49-0.92     44.8
+
+SYNONYM STEP ON THE SAME PARAPHRASE (18 pairs)
+  Mean change in z when synonyms are added: -0.08  (z lower in 8 of 18 pairs)
+  Mean change in similarity: -0.039
+
+DETECTED AT DELTA 2.0, PER RUN (first 5 prompts, sweep)
+  seed 1: 4 of 5
+  seed 2: 4 of 5
+  seed 3: 4 of 5
+
+EDGE CASES (last run)
+  empty string: handled (No tokens to analyze)
+  single word: handled (No tokens to analyze)
+  very short: z=-1.00 watermarked=False
+  repeated word: z=-1.73 watermarked=False
+  numbers only: z=-0.82 watermarked=False

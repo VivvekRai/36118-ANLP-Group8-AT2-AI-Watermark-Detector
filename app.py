@@ -1,9 +1,3 @@
-"""
-Streamlit demo for the AI text watermarking generator + detector.
-
-This file is intentionally thin: all the actual watermarking logic lives in
-src/watermark/, so this is just wiring that logic up to a UI.
-"""
 import textwrap
 import threading
 import time
@@ -228,11 +222,7 @@ st.markdown(
 
 
 def _loader_component(pct_display, label):
-    """
-    Fully self-contained loader (inline CSS + HTML) for use inside
-    st.iframe, which renders in an isolated iframe and cannot see
-    the main page's stylesheet.
-    """
+
     dots = ""
     for i in range(12):
         angle = i * 30
@@ -346,13 +336,7 @@ def show_loader(placeholder, label, pct=None):
 
 
 def run_with_progress(placeholder, label, expected_seconds, func, *args, **kwargs):
-    """
-    Runs func(*args, **kwargs) on a background thread while showing a
-    percentage-based loader in placeholder. Returns func's result.
 
-    If func raises, the exception is re-raised here in the main thread
-    with a full traceback, instead of silently vanishing.
-    """
     result_holder = {}
     error_holder = {}
 
@@ -411,11 +395,7 @@ CONTEXT_MARGIN = 8  # small safety gap
 
 
 def fit_prompt_to_context(prompt, max_new_tokens=GEN_NEW_TOKENS):
-    """
-    Trim an over-long prompt so prompt + new tokens fit in GPT-2's context window.
-    Keeps the END of the prompt, since the most recent text matters most.
-    Returns (prompt_to_use, was_trimmed, original_token_count, kept_token_count).
-    """
+
     context_limit = getattr(model.config, "n_positions", 1024)
     budget = context_limit - max_new_tokens - CONTEXT_MARGIN
     token_ids = tokenizer(prompt).input_ids
@@ -475,12 +455,12 @@ MIN_RELIABLE_TOKENS = 30  # below this, z-scores are too noisy to trust
 
 
 def has_error(result):
-    """True if detect_watermark returned an error dict (e.g. fewer than 2 tokens)."""
+
     return (not isinstance(result, dict)) or ("error" in result)
 
 
 def evidence_note(result, threshold):
-    """One plain-English sentence explaining the verdict."""
+
     z = result["z_score"]
     stats = (
         f"{result['green_fraction']:.0%} of tokens matched the green list, "

@@ -1,0 +1,907 @@
+{
+  "meta": {
+    "seed": 2,
+    "timestamp": "20261017_124636",
+    "gen_tokens": 40,
+    "z_threshold": 4.0,
+    "environment": {
+      "python": "3.14.7",
+      "platform": "Windows-11-10.0.26200-SP0",
+      "torch": "2.14.0+cpu",
+      "transformers": "5.17.0",
+      "sentence_transformers": "6.1.0",
+      "nltk": "3.10.3",
+      "streamlit": "1.64.0",
+      "git_commit": "1917d9f",
+      "git_uncommitted_changes": false
+    },
+    "seconds": 469.9
+  },
+  "control": [
+    {
+      "prompt": "The weather today is",
+      "delta": 0.0,
+      "text": "The weather today is not bad, but that`s what you should expect. Encounters with strangers can have precipitation, clouds are low and roads crooked.I`ve seen these situations before as well. I came across",
+      "z": 1.1445861782233109,
+      "green_fraction": 0.32558139534883723,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 0.0,
+      "text": "In recent economic news, an email obtained from CIOA - the company which initially ceremonyinated an independent office in Luxembourg - has revealed that the average location in this part has increased in Houston now than California,\" said Isabela Bord",
+      "z": -2.151657414559676,
+      "green_fraction": 0.1111111111111111,
+      "detected": false,
+      "tokens": 46
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 0.0,
+      "text": "Scientists have discovered that white whale corpses not only contain significant amounts of organ care, but produce the necessary energy to make theoticals.\n\nFurthermore, specific metabolic pathways in the brain influence the emotional sensitivity and bigas",
+      "z": -0.9684959969581862,
+      "green_fraction": 0.18604651162790697,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 0.0,
+      "text": "The history of Rome shows that as economy grew the resources became increasingly scarce; and, therefore, increased war, piracy, warping of the Rhine (growing the mountains for tourism, as well as ships from Rome continued their",
+      "z": -0.6963106238227914,
+      "green_fraction": 0.20454545454545456,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 0.0,
+      "text": "Cooking a good meal requires an enormous amount of time. You'd have to eat plenty and learn a lot before you can get a 60+ hour meal out of it. Fortunately you can help practice healthy eating if you're going",
+      "z": 0.9467292624062575,
+      "green_fraction": 0.3111111111111111,
+      "detected": false,
+      "tokens": 46
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 0.0,
+      "text": "Modern architecture often features extended versions of the client side code, something of a parallelization problem. Developers are relying on developers to design outside libraries it requires. The JavaScript front-end relies heavily on greatly different VMs (",
+      "z": 1.4967665407535604,
+      "green_fraction": 0.3488372093023256,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The stock market reacted to",
+      "delta": 0.0,
+      "text": "The stock market reacted to the Times' report with immediate outrage and trepidation. Warren fired back at the article. \"Don't give the Times stories about the wine, the intellectual property, overpriced and untainted by",
+      "z": 0.3481553119113957,
+      "green_fraction": 0.2727272727272727,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Education systems around the world",
+      "delta": 0.0,
+      "text": "Education systems around the world have their limits of marketing and community accountability. And my considerable amount of personal experience, journalistic and practical experience, which makes them remarkable, makes them truly difficult to summarize and therefore there is usually collusion and",
+      "z": 0.3481553119113957,
+      "green_fraction": 0.2727272727272727,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Climate change affects",
+      "delta": 0.0,
+      "text": "Climate change affects the fisheries and is ultimately responsible for the industrial revolution, agricultural advances and urbanization of the USA. Australia and the USA were primarily high transiting anti-dumping north would have heavily affected their Vietnam",
+      "z": 0.1781741612749496,
+      "green_fraction": 0.2619047619047619,
+      "detected": false,
+      "tokens": 43
+    },
+    {
+      "prompt": "The novel begins with",
+      "delta": 0.0,
+      "text": "The novel begins with Kim Jong-il in Port Moresby, N.C., called Booroo, and finally motions his ship to Xul Noor Mountain after his respectful \"modified\" interaction with Brad Pitt",
+      "z": -0.26413527189768715,
+      "green_fraction": 0.23255813953488372,
+      "detected": false,
+      "tokens": 44
+    }
+  ],
+  "sweep": [
+    {
+      "prompt": "The weather today is",
+      "delta": 0.5,
+      "text": "The weather today is good, and I'm hoping you enjoy the sunshine recently.\"\n\nSeasonal weather forecasts usually place the country 21 days or less above normal.\n\nThe priority for future Chiesa season is",
+      "z": 2.5533076283443092,
+      "green_fraction": 0.4186046511627907,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 0.5,
+      "text": "In recent economic news, the son of convicted tax fraudster John Norcross very much loved vanity products. His attempts to make The Chinese their best car salesman had also resulted in the creation of concept cars, the Void Wheel and",
+      "z": 2.7852424952911656,
+      "green_fraction": 0.4318181818181818,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 0.5,
+      "text": "Scientists have discovered that crowded and sometimes violent 20s-era axe cannibalism may have led to certain deaths of Native people out there to cannibalize them.\n\nAssuming the cult comment is accurate, the burrowing ground",
+      "z": 0.4402254531628119,
+      "green_fraction": 0.27906976744186046,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 0.5,
+      "text": "The history of Rome shows that while intermarriage and civil war were common, German and Italian ones never again drove them apart. In 1847 Pope Clement VIII ordered clerical review. By 1848, there were 120,000",
+      "z": 2.7852424952911656,
+      "green_fraction": 0.4318181818181818,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 0.5,
+      "text": "Cooking a good meal requires attention, so he looked down at his friend and told him that you don't want someone like us \"taking your and my time shopping for dinner.\"\n\nHe was skeptical at first. This guy",
+      "z": 3.700850753042643,
+      "green_fraction": 0.4888888888888889,
+      "detected": false,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 1.0,
+      "text": "The weather today is lovely – all day long. Stay tuned.\n\nDisposing of Turnstiles\n\nWhen it comes to turning their bikes, Reletivo Bolthier men do one thing well: they",
+      "z": 2.5533076283443092,
+      "green_fraction": 0.4186046511627907,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 1.0,
+      "text": "In recent economic news, the growing supply of food and other ingredients may have indirectly had the option of producing an increase in the prices of EU agricultural products following political change.\n\nHowever, despite complicated economic reasons for the stored",
+      "z": 3.481553119113957,
+      "green_fraction": 0.4772727272727273,
+      "detected": false,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 1.0,
+      "text": "Scientists have discovered that particular cancer cells can respond to multiple genetic mutations on the cellular and molecular level, and will become more frequent and more aggressive when activated by exposure to treatments and treatments with mitochondrial-, an evolutionary cellular machinery",
+      "z": 1.9599157740244455,
+      "green_fraction": 0.38095238095238093,
+      "detected": false,
+      "tokens": 43
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 1.0,
+      "text": "The history of Rome shows that Augustus established a 100-year siege over Pompeii under the heavy care ofukes Hannibal and Lucretius foresaw a gradual ascent of the decline of his empire. He extended his invasions from",
+      "z": 4.526019054848144,
+      "green_fraction": 0.5454545454545454,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 1.0,
+      "text": "Cooking a good meal requires time and effort, and then as per our thoughts if not every meal is with rodents I want a better choice.\n\nSlow Cooker Mondial Market Restaurant A economical service and eco-friendly establishment",
+      "z": 4.389381125701739,
+      "green_fraction": 0.5333333333333333,
+      "detected": true,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "text": "The weather today is not conducive. The tile floor of this pant display may clear. For a fun house I humbly invite you to join me at Holiday Age at Fisher Hall to pick up some Toddlers or take a",
+      "z": 7.483832703767803,
+      "green_fraction": 0.7441860465116279,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "text": "In recent economic news, Earth is in dangerous straits with oil alone gaining about two-thirds the amount of third world reserves as long-term supplies of gas. The price of gas fluctuates between two-month lows followed",
+      "z": 5.222329678670935,
+      "green_fraction": 0.5909090909090909,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "text": "Scientists have discovered that many St. Maarten Buddhas revolve around the same fundamental goal—to help people overcome emotional processes that render them powerless. One instructor who completed his very first master struggle class and came to be",
+      "z": 2.2011272658140597,
+      "green_fraction": 0.3953488372093023,
+      "detected": false,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "text": "The history of Rome shows that Rome attained to a state of insignificance with respect to its military bases and poorly defended strategic positions as well as to the excesses, features of whichaced it in the South. This had",
+      "z": 5.570484990582331,
+      "green_fraction": 0.6136363636363636,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "text": "Cooking a good meal requires this insight and quick step on the ground. I am not talking about the perfect bite of delicious, easy to prepare meat, nor are my good piles of healthy eggs and seasoned broccoli coops the perfect",
+      "z": 7.487767802667673,
+      "green_fraction": 0.7333333333333333,
+      "detected": true,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 3.0,
+      "text": "The weather today is battered with an East Texas thunderstorm, driving by Houston on Friday evening. The storm carried additional moisture on her surface and driven an area of rain near Ball purgatory that still falls below 40 degrees",
+      "z": 8.540373791358551,
+      "green_fraction": 0.813953488372093,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 3.0,
+      "text": "In recent economic news, the stock has indeed crossed several weeks high lows and features sharply bearish performance as stocks hit a week high that could tip it into God knows where week numbers tie. The market has benefited greatly from last",
+      "z": 8.355727485873496,
+      "green_fraction": 0.7954545454545454,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 3.0,
+      "text": "Scientists have discovered that, by analyzing electromagnetic fields generated by preferential magnetic fields (MIPs), electrons that have traditionally been thought of as field neutralize when exposed to electromagnetic fields e.g., light rays from",
+      "z": 5.680518698404823,
+      "green_fraction": 0.6341463414634146,
+      "detected": true,
+      "tokens": 42
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 3.0,
+      "text": "The history of Rome shows how one of Gull are friends and rivals. He even stated in the appearance of the Fear Cycle that even if Gull are ones to come upon planets themselves (Mars would surely doom any who oppose",
+      "z": 9.400193421607684,
+      "green_fraction": 0.8636363636363636,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 3.0,
+      "text": "Cooking a good meal requires some practice. Don't worry about the amount of ingredients per person, and try not to crank that totals up to right figures or missing many details (too many values of 30FFM are used)",
+      "z": 7.832032988997221,
+      "green_fraction": 0.7555555555555555,
+      "detected": true,
+      "tokens": 46
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 4.0,
+      "text": "The weather today is warm especially northwest throughout much of the Midwestern state from March, and extensive snowfall made possible over recent winter months could hinder crops that could be struggling under a significant drought. Since Feb. 1,",
+      "z": 9.949095241479549,
+      "green_fraction": 0.9069767441860465,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 4.0,
+      "text": "In recent economic news, the U.S.'s stock startups received meaningful capital and investment. The following pages provide important updates deep into VC and data on acquisitions by micro-sites, which can sometimes offer insights and suggestions",
+      "z": 8.188193428828301,
+      "green_fraction": 0.7906976744186046,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 4.0,
+      "text": "Scientists have discovered that numerous turtle's legs have wolves, and in fact, the first recorded wolves on our planet came after ancient sea-based predators. Tiefton's twin, Lucky4531 and Lucky4531 appeared",
+      "z": 7.483832703767803,
+      "green_fraction": 0.7441860465116279,
+      "detected": true,
+      "tokens": 44
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 4.0,
+      "text": "The history of Rome shows we had slavery and aristocratic government to make America a republic,\" Hannibal also wrote. He was not meant to leave native African Gaul Ohio and to declare martial law. Although even before slavery's nullity",
+      "z": 9.748348733519078,
+      "green_fraction": 0.8863636363636364,
+      "detected": true,
+      "tokens": 45
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 4.0,
+      "text": "Cooking a good meal requires dragon food from places and foods that share not all of the same functions of food washing it back onto fibers and starch-based food and making it easier, the dry situation? This is not normal diet",
+      "z": 9.553358920644962,
+      "green_fraction": 0.8666666666666667,
+      "detected": true,
+      "tokens": 46
+    }
+  ],
+  "attacks": [
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "The weather today is solted and Pahwa is under fairly good weather and rest assured I will be in the grip of my firing line under Light Infantry as to what the outcome is. Drew English team leader. Gren",
+      "attacked_text": "The weather solted and Pahwa is under fairly good weather and rest assured I will be in the my firing line under Light Infantry as what outcome is. Drew English team leader. Gren",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 5.979695373240744,
+        "green_fraction": 0.6756756756756757,
+        "detected": true,
+        "tokens": 38
+      },
+      "similarity": 0.9712304472923279,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "The weather today is solted and Pahwa is under fairly good weather and rest assured I will be in the grip of my firing line under Light Infantry as to what the outcome is. Drew English team leader. Gren",
+      "attacked_text": "With the solitaire weather set for today, Pahwa is experiencing relatively good conditions and I am confident that I will be in my firing line under Light Infantry. The leader of Drew English and a Grenațieis team, I have some sense why they are there but not quite ready to go on strike until tomorrow morning when it's too dark outside to ride their bikes or kayak across North America.\"",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.5703518254720301,
+        "green_fraction": 0.27710843373493976,
+        "detected": false,
+        "tokens": 84
+      },
+      "similarity": 0.7743848562240601,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "The weather today is solted and Pahwa is under fairly good weather and rest assured I will be in the grip of my firing line under Light Infantry as to what the outcome is. Drew English team leader. Gren",
+      "attacked_text": "With the solitaire weather set for today, Pahwa is experiencing moderate sunshine and I am confident that I will be in my own firing line under Light Infantry.",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 1.6329931618554523,
+        "green_fraction": 0.375,
+        "detected": false,
+        "tokens": 33
+      },
+      "similarity": 0.7354520559310913,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The weather today is",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "The weather today is solted and Pahwa is under fairly good weather and rest assured I will be in the grip of my firing line under Light Infantry as to what the outcome is. Drew English team leader. Gren",
+      "attacked_text": "With the solitaire weather set for today, Pahwa is experiencing comparatively good conditions and I am confident that I will be in my firing line under Light Infantry. The leader of Drew English and a Grenațieis squad, I have some sense why they are thither but not quite ready to go on strike until tomorrow morning when it's too dark outside to ride their bikes or kayak across North America.\"",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.7559289460184544,
+        "green_fraction": 0.2857142857142857,
+        "detected": false,
+        "tokens": 85
+      },
+      "similarity": 0.773277997970581,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "In recent economic news, the Kurdistan Regional Government (KRG) embraced a \"Sunni stand on religious and financial issues\", said Walid Mahmood.\n\n\"If they meet with suspicion, the result would be the",
+      "attacked_text": "In recent economic news, the Kurdistan Regional Government (KRG) embraced a \"Sunni stand on religious and financial issues\", said Walid Mahmood. \"If they meet with suspicion, the result would be the",
+      "original": {
+        "z": 3.8297084310253524,
+        "green_fraction": 0.5,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 4.09800570932384,
+        "green_fraction": 0.5238095238095238,
+        "detected": true,
+        "tokens": 43
+      },
+      "similarity": 1.000000238418579,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "In recent economic news, the Kurdistan Regional Government (KRG) embraced a \"Sunni stand on religious and financial issues\", said Walid Mahmood.\n\n\"If they meet with suspicion, the result would be the",
+      "attacked_text": "Walid Mahmoon stated that the KRG has adopted a \"Sunni\" approach on religious and financial issues, as per recent economic news. He warned against any actions by Sunnites should be disregarded when they encounter suspicion or danger, which could lead to serious consequences in future elections.",
+      "original": {
+        "z": 3.8297084310253524,
+        "green_fraction": 0.5,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": -0.15161960871578067,
+        "green_fraction": 0.2413793103448276,
+        "detected": false,
+        "tokens": 59
+      },
+      "similarity": 0.8011913299560547,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "In recent economic news, the Kurdistan Regional Government (KRG) embraced a \"Sunni stand on religious and financial issues\", said Walid Mahmood.\n\n\"If they meet with suspicion, the result would be the",
+      "attacked_text": "The KRG has a \"Sunni\" view on religious and financial matters, as stated by Walid Mahmoon in late economical tidings. He warned that anyone who harbors hunch would front the consequences of their actions.",
+      "original": {
+        "z": 3.8297084310253524,
+        "green_fraction": 0.5,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": -0.43033148291193524,
+        "green_fraction": 0.2222222222222222,
+        "detected": false,
+        "tokens": 46
+      },
+      "similarity": 0.7698320150375366,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "In recent economic news,",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "In recent economic news, the Kurdistan Regional Government (KRG) embraced a \"Sunni stand on religious and financial issues\", said Walid Mahmood.\n\n\"If they meet with suspicion, the result would be the",
+      "attacked_text": "Walid Mahmoon stated that the KRG has adopted a \"Sunni\" approach on spiritual and financial issues, as per recent economic news. He warned against any actions by Sunnites should be disregarded when they find intuition or danger, which could lead to serious consequences in next elections.",
+      "original": {
+        "z": 3.8297084310253524,
+        "green_fraction": 0.5,
+        "detected": false,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": -0.7580980435789034,
+        "green_fraction": 0.20689655172413793,
+        "detected": false,
+        "tokens": 59
+      },
+      "similarity": 0.7962267398834229,
+      "eligible": false,
+      "defeated": false
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Scientists have discovered that a digestive system significantly widens, until I get the evidence.\"\n\nAndoler Zagarwinuk At MILA, the chief of the Moldovan and Ukrainian veterinary response to complaints, says last",
+      "attacked_text": "Scientists have discovered that a digestive system significantly widens, until I the evidence.\" Andoler Zagarwinuk At the chief of the and Ukrainian veterinary response to complaints, says",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 3.7625606633113624,
+        "green_fraction": 0.5294117647058824,
+        "detected": false,
+        "tokens": 35
+      },
+      "similarity": 0.9684224128723145,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Scientists have discovered that a digestive system significantly widens, until I get the evidence.\"\n\nAndoler Zagarwinuk At MILA, the chief of the Moldovan and Ukrainian veterinary response to complaints, says last",
+      "attacked_text": "According to scientists, the digestive tract can become much larger as a whole.",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.9258200997725514,
+        "green_fraction": 0.35714285714285715,
+        "detected": false,
+        "tokens": 15
+      },
+      "similarity": 0.5958634614944458,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Scientists have discovered that a digestive system significantly widens, until I get the evidence.\"\n\nAndoler Zagarwinuk At MILA, the chief of the Moldovan and Ukrainian veterinary response to complaints, says last",
+      "attacked_text": "According to scientists, the digestive system has a significantly wider surface area than previously thought until they provide evidence.",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.5163977794943222,
+        "green_fraction": 0.3,
+        "detected": false,
+        "tokens": 21
+      },
+      "similarity": 0.665117621421814,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Scientists have discovered that",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Scientists have discovered that a digestive system significantly widens, until I get the evidence.\"\n\nAndoler Zagarwinuk At MILA, the chief of the Moldovan and Ukrainian veterinary response to complaints, says last",
+      "attacked_text": "According to scientists, the digestive pamphlet can become much larger as a whole.",
+      "original": {
+        "z": 6.427291616177054,
+        "green_fraction": 0.6744186046511628,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 0.3086066999241838,
+        "green_fraction": 0.2857142857142857,
+        "detected": false,
+        "tokens": 15
+      },
+      "similarity": 0.4935644865036011,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "The history of Rome shows that she got the survival actually worked out for her, without the damage and confusion conquered by the failed subsequent Balkan court.\n\n\nIt couldn't hurt either to do, though. She had just",
+      "attacked_text": "The history of shows she the survival actually worked out for without the and confusion conquered the subsequent Balkan court. It couldn't hurt either to do, though. She just",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 5.125692857821981,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 34
+      },
+      "similarity": 0.8508527278900146,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "The history of Rome shows that she got the survival actually worked out for her, without the damage and confusion conquered by the failed subsequent Balkan court.\n\n\nIt couldn't hurt either to do, though. She had just",
+      "attacked_text": "According to Rome's history, she managed to survive despite the defeat of her previous court in Balkan states.",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": -1.1338934190276817,
+        "green_fraction": 0.14285714285714285,
+        "detected": false,
+        "tokens": 22
+      },
+      "similarity": 0.8404455184936523,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "The history of Rome shows that she got the survival actually worked out for her, without the damage and confusion conquered by the failed subsequent Balkan court.\n\n\nIt couldn't hurt either to do, though. She had just",
+      "attacked_text": "The history of Rome demonstrates that she was fortunate to have secured her position without the devastation and chaos caused by the unsuccessful Balkan court. Although it may not have been an easy job, her position could be saved.",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.8908708063747479,
+        "green_fraction": 0.30952380952380953,
+        "detected": false,
+        "tokens": 43
+      },
+      "similarity": 0.8464457988739014,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "The history of Rome shows",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "The history of Rome shows that she got the survival actually worked out for her, without the damage and confusion conquered by the failed subsequent Balkan court.\n\n\nIt couldn't hurt either to do, though. She had just",
+      "attacked_text": "According to Rome's history, she managed to survive despite the licking of her previous tribunal in Balkan states.",
+      "original": {
+        "z": 5.918640302493727,
+        "green_fraction": 0.6363636363636364,
+        "detected": true,
+        "tokens": 45
+      },
+      "attacked": {
+        "z": 0.3779644730092272,
+        "green_fraction": 0.2857142857142857,
+        "detected": false,
+        "tokens": 22
+      },
+      "similarity": 0.7745957970619202,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Cooking a good meal requires time to prepare. So what is important for you? Before you ask the question Stitch is a good formula for keeping an ongoing lifestyle, I suggest wasting a book and studying the food necessity out!",
+      "attacked_text": "Cooking good meal requires to prepare. So what important you the question Stitch is a good formula for keeping an ongoing lifestyle, I suggest wasting and the food out!",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": 3.1156172273035576,
+        "green_fraction": 0.48484848484848486,
+        "detected": false,
+        "tokens": 34
+      },
+      "similarity": 0.9601118564605713,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Cooking a good meal requires time to prepare. So what is important for you? Before you ask the question Stitch is a good formula for keeping an ongoing lifestyle, I suggest wasting a book and studying the food necessity out!",
+      "attacked_text": "If you want to ensure a consistent lifestyle, what is the key ingredient for cooking an appetizing meal? I recommend skipping over this book and studying all possible food options, as it may not be fruitful.",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": 0.7302967433402214,
+        "green_fraction": 0.3,
+        "detected": false,
+        "tokens": 41
+      },
+      "similarity": 0.6163753271102905,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Cooking a good meal requires time to prepare. So what is important for you? Before you ask the question Stitch is a good formula for keeping an ongoing lifestyle, I suggest wasting a book and studying the food necessity out!",
+      "attacked_text": "To ensure a satisfying meal lasts, what's essential to prioritize for preparation?",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": -0.9258200997725514,
+        "green_fraction": 0.14285714285714285,
+        "detected": false,
+        "tokens": 15
+      },
+      "similarity": 0.5808955430984497,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Cooking a good meal requires",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Cooking a good meal requires time to prepare. So what is important for you? Before you ask the question Stitch is a good formula for keeping an ongoing lifestyle, I suggest wasting a book and studying the food necessity out!",
+      "attacked_text": "If you desire to ensure a coherent lifestyle, what is the central ingredient for cooking an appetizing meal? I recommend skipping over this record and studying all potential food options, as it may not be fruitful.",
+      "original": {
+        "z": 5.766441871019932,
+        "green_fraction": 0.6222222222222222,
+        "detected": true,
+        "tokens": 46
+      },
+      "attacked": {
+        "z": 1.0954451150103321,
+        "green_fraction": 0.325,
+        "detected": false,
+        "tokens": 41
+      },
+      "similarity": 0.6266136169433594,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "deletion",
+      "original_text": "Modern architecture often features more Russian lights and predominantly white solid heating. This changed to reflect this change in Kickstarter funding. Early funders funded what they thought was my best resource on how to go further through community Ethereum records.",
+      "attacked_text": "Modern architecture often features more Russian lights and predominantly white solid heating. This to reflect this in Kickstarter funding. Early funders funded what they was best resource on to go further through community records.",
+      "original": {
+        "z": 5.722930891116555,
+        "green_fraction": 0.627906976744186,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 5.600032174939744,
+        "green_fraction": 0.6486486486486487,
+        "detected": true,
+        "tokens": 38
+      },
+      "similarity": 0.9175052642822266,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "paraphrase",
+      "original_text": "Modern architecture often features more Russian lights and predominantly white solid heating. This changed to reflect this change in Kickstarter funding. Early funders funded what they thought was my best resource on how to go further through community Ethereum records.",
+      "attacked_text": "The use of Russian lights and white solid heating is a common feature in modern architecture, but this change was brought about by the shift in funding from Kickstarter. Early funders provided support for an \"impossible\" resource on exploring community Ethereum records.",
+      "original": {
+        "z": 5.722930891116555,
+        "green_fraction": 0.627906976744186,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 4.333333333333333,
+        "green_fraction": 0.5208333333333334,
+        "detected": true,
+        "tokens": 49
+      },
+      "similarity": 0.9077736139297485,
+      "eligible": true,
+      "defeated": false
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "compound",
+      "original_text": "Modern architecture often features more Russian lights and predominantly white solid heating. This changed to reflect this change in Kickstarter funding. Early funders funded what they thought was my best resource on how to go further through community Ethereum records.",
+      "attacked_text": "Modern architecture typically includes more Russian lights and primarily white solid heating. However, this change was brought about by the changing financing from Kickstarter and early funders who funded an initiative that they believed would provide me with valuable information on exploring community Ethereum records.",
+      "original": {
+        "z": 5.722930891116555,
+        "green_fraction": 0.627906976744186,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 2.6666666666666665,
+        "green_fraction": 0.4166666666666667,
+        "detected": false,
+        "tokens": 49
+      },
+      "similarity": 0.939476490020752,
+      "eligible": true,
+      "defeated": true
+    },
+    {
+      "prompt": "Modern architecture often features",
+      "delta": 2.0,
+      "attack": "compound_same_paraphrase",
+      "original_text": "Modern architecture often features more Russian lights and predominantly white solid heating. This changed to reflect this change in Kickstarter funding. Early funders funded what they thought was my best resource on how to go further through community Ethereum records.",
+      "attacked_text": "The use of Russian lights and white solid heating is a mutual characteristic in modern architecture, but this change was brought about by the shift in funding from Kickstarter. Early funders provided support for an \"impossible\" resource on exploring community Ethereum records.",
+      "original": {
+        "z": 5.722930891116555,
+        "green_fraction": 0.627906976744186,
+        "detected": true,
+        "tokens": 44
+      },
+      "attacked": {
+        "z": 4.0,
+        "green_fraction": 0.5,
+        "detected": false,
+        "tokens": 49
+      },
+      "similarity": 0.9230517148971558,
+      "eligible": true,
+      "defeated": true
+    }
+  ],
+  "edge": [
+    {
+      "case": "empty string",
+      "text": "",
+      "error": "No tokens to analyze",
+      "tokens": 0
+    },
+    {
+      "case": "single word",
+      "text": "Hello",
+      "error": "No tokens to analyze",
+      "tokens": 1
+    },
+    {
+      "case": "very short",
+      "text": "AI is good.",
+      "z": -1.0,
+      "green_fraction": 0.0,
+      "detected": false,
+      "tokens": 4
+    },
+    {
+      "case": "repeated word",
+      "text": "the the the the the the the the the the",
+      "z": -1.7320508075688772,
+      "green_fraction": 0.0,
+      "detected": false,
+      "tokens": 10
+    },
+    {
+      "case": "numbers only",
+      "text": "12345 67890 11111 22222",
+      "z": -0.8164965809277261,
+      "green_fraction": 0.125,
+      "detected": false,
+      "tokens": 9
+    }
+  ]
+}
